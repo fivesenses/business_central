@@ -11,20 +11,6 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "Cropster"
-  gem.homepage = "http://github.com/bluebottlecoffee/cropster"
-  gem.license = "MIT"
-  gem.summary = %Q{Provides an interface to the Cropster API}
-  gem.description = %Q{Provides an interface to the Cropster API}
-  gem.email = ["caseyg@bluebottlecoffee.com", "jordan.brock@fivesenses.com.au"]
-  gem.authors       = ["Casey Gipson", "Jordan Brock"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
