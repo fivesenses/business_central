@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "rest-client"
   spec.add_development_dependency "bundler", "~> 1.16"
-  spec.add_development_dependency "jeweler"
+  # spec.add_development_dependency "jeweler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-cobertura"
