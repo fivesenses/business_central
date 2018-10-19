@@ -3,14 +3,11 @@ require 'simplecov-cobertura'
 require 'webmock'
 require 'webmock/fixtures'
 require 'webmock/test_unit'
-require 'minitest/reporters'
 
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
 require 'business_central'
-
-Minitest::Reporters.use! Minitest::Reporters::JUnitReporter.new
 
 module SimpleCov::Configuration
   def clean_filters
