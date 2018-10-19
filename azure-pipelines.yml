@@ -16,5 +16,16 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
-- script: bundle exec rake
-  displayName: 'bundle exec rake'
+- script: bundle exec rake ci:setup:testunit test
+  displayName: 'bundle exec rake test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '$(System.DefaultWorkingDirectory)**/test/reporters/TEST*.xml'
+    testRunTitle: 'Ruby tests'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'

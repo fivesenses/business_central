@@ -50,3 +50,6 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+require 'ci/reporter/rake/test_unit'
+task :testunit => 'ci:setup:testunit'

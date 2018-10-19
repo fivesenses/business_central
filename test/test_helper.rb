@@ -1,12 +1,16 @@
 require 'simplecov'
+require 'simplecov-cobertura'
 require 'webmock'
 require 'webmock/fixtures'
 require 'webmock/test_unit'
+require 'minitest/reporters'
 
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
 require 'business_central'
+
+Minitest::Reporters.use! Minitest::Reporters::JUnitReporter.new
 
 module SimpleCov::Configuration
   def clean_filters
@@ -18,6 +22,11 @@ SimpleCov.configure do
   clean_filters
   load_profile 'test_frameworks'
 end
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::CoberturaFormatter
+]
 
 SimpleCov.start
 
