@@ -21,7 +21,7 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFiles: '$(System.DefaultWorkingDirectory)**/test/reporters/TEST*.xml'
+    testResultsFiles: '$(System.DefaultWorkingDirectory)**/test/reports/TEST*.xml'
     testRunTitle: 'Ruby tests'
 
 - task: PublishCodeCoverageResults@1
