@@ -7,7 +7,6 @@ require 'webmock/test_unit'
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
-require 'business_central'
 
 module SimpleCov::Configuration
   def clean_filters
@@ -26,6 +25,8 @@ SimpleCov.formatters = [
 ]
 
 SimpleCov.start
+
+require 'business_central'
 
 begin
   Bundler.setup(:default, :development)
