@@ -8,14 +8,8 @@ require 'rubygems'
 require 'bundler'
 require 'test/unit'
 
-module SimpleCov::Configuration
-  def clean_filters
-    @filters = []
-  end
-end
-
 SimpleCov.configure do
-  clean_filters
+  add_filter %r{^/opt/hostedtoolcache/}
   load_profile 'test_frameworks'
 end
 
