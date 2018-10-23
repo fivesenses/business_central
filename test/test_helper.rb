@@ -37,7 +37,7 @@ class Test::Unit::TestCase; end
 
 def bc_client
   BusinessCentral::Client.new({
-    api_domain: "cronos.com",
+    api_tenant: "cronos.com",
     api_username: "foo",
     api_password: "bar",
     test_mode: true
@@ -55,5 +55,5 @@ def register_fixture(fixture, operation, url)
 end
 
 def fixture_url(url)
-  "https://foo:bar@https://businesscentral.dynamics.com/v1.0/conos.com/api/beta/#{url}"
+  "https://foo:bar@api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/#{url}"
 end
