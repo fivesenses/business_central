@@ -1,5 +1,4 @@
 require 'net/http'
-require 'typhoeus'
 require 'json'
 
 require 'business_central/base'
