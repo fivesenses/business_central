@@ -15,60 +15,41 @@ module BusinessCentral
     end
 
     def find_collection(object_url)
-      response = get("/#{object_url}")
+      response = @client.get("/#{object_url}")
       handle_error(response)
       process(response)
     end
 
     def find_by_id(object_url, id)
-      response = get("/#{object_url}/#{id}")
+      response = @client.get("/#{object_url}/#{id}")
       handle_error(response)
       process(response)
     end
 
     def create(object_url, data)
-      response = post("/#{object_url}", data)
+      response = @client.post("/#{object_url}", data)
       handle_error(response)
       process(response)
     end
 
-    def update(object_url, id, data)
-      response = patch("/#{object_url}/#{id}", data)
+    def update(object_url, id, etag, data)
+      response = @client.patch("/#{object_url}/#{id}", etag, data)
       handle_error(response)
       process(response)
     end
 
-    def process(response); end
-
-    protected
-    # Builds the filter URL from the provided options
-    #
-    # Params:
-    # +filter+:: +String+ The object name to filter
-    # +opts+::  +Hash+ Options to filter the request being performed
-    def url_filter(filter, opts = {})
-      "#{uri_options(filter, opts)}"
+    def process(response)
+      BusinessCentral::Response::ResponseHandler.
+        new(dataset(response)).compiled_data
     end
 
     private
-    def get(url)
-      @client.get(url)
-    end
-
-    def post(url, data)
-      @client.post(url, data)
-    end
-
-    def patch(url, data)
-      @client.patch(url, data)
-    end
-
     def base_url
       @client.base_url
     end
 
     def handle_error(response)
-      raise ServiceUnavailableError unless response.code == 200
+      # raise ServiceUnavailableError unless response.code == 200
     end
 
     def uri_options(filter, opts)

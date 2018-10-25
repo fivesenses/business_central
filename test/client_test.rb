@@ -26,7 +26,7 @@ class BusinessCentral::ClientTest < Test::Unit::TestCase
       api_company_id: "company_id"
     })
 
-    assert_equal "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/company_id",
+    assert_equal "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/companies/company_id",
       client.base_url
   end
 end

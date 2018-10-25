@@ -19,25 +19,29 @@ module BusinessCentral
     def base_url
       url = "#{host}#{@api_version}/#{@api_tenant}#{@api_path}"
       unless @api_company_id.nil?
-        url += "/#{@api_company_id}"
+        url += "/companies/#{@api_company_id}"
       end
       url
     end
 
     def get(url)
-      Typhoeus::Request.get(base_url + url, userpwd: basic_auth)
+      request = build_request({ verb: "Get", url: url })
+      perform_request(request)
     end
 
     def post(url, data)
-      Typhoeus::Request.post(base_url + url,
-                             userpwd: basic_auth,
-                             body: data)
+      request = build_request({ verb: "Post", url: url, data: data })
+      perform_request(request)
     end
 
-    def patch(url, data)
-      Typhoeus::Request.patch(base_url + url,
-                              userpwd: basic_auth,
-                              body: data)
+    def patch(url, etag, data)
+      request = build_request({ verb: "Patch", url: url, data: data, etag: etag })
+      perform_request(request)
+    end
+
+    def delete(url, etag)
+      request = build_request({ verb: "Delete", url: url, data: data, etag: etag })
+      perform_request(request)
     end
 
     def dataset(response)
@@ -47,11 +51,25 @@ module BusinessCentral
       else
         json
       end
-    rescue
-      {}
+    # rescue
+    #   {}
     end
 
     protected
+    def get_uri(url)
+      URI(base_url + url)
+    end
+
+    def build_request(opts)
+      BusinessCentral::RequestBuilder.new(self, opts).request
+    end
+
+    def perform_request(request)
+      Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
+        http.request(request)
+      end
+    end
+
     def basic_auth
       "#{@api_username}:#{@api_password}"
     end
