@@ -44,6 +44,13 @@ def bc_client
   })
 end
 
+def fixture_setup(fixture)
+  register_fixtures
+  load_fixture(fixture)
+end
+
+def register_fixtures; end
+
 def load_fixture(fixture)
   WebMock::Fixtures::Manager.run([fixture])
 end
