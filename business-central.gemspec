@@ -25,6 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov-cobertura"
   spec.add_development_dependency "test-unit"
   spec.add_development_dependency "webmock"
-  spec.add_development_dependency "webmock-fixtures"
   spec.add_development_dependency "ci_reporter_test_unit"
 end

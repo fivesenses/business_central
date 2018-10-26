@@ -1,12 +1,14 @@
-require 'simplecov'
-require 'simplecov-cobertura'
-require 'webmock'
-require 'webmock/fixtures'
-require 'webmock/test_unit'
-
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
+
+require 'simplecov'
+require 'simplecov-cobertura'
+
+require 'webmock'
+require 'webmock/test_unit'
+
+require 'business_central'
 
 SimpleCov.configure do
   add_filter %r{^/opt/hostedtoolcache/}
@@ -20,7 +22,6 @@ SimpleCov.formatters = [
 
 SimpleCov.start
 
-require 'business_central'
 
 begin
   Bundler.setup(:default, :development)
@@ -61,6 +62,40 @@ def register_fixture(fixture, operation, url)
     register_fixture_file(fixture, operation, url, file)
 end
 
-def fixture_url(url)
-  "https://foo:bar@api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/#{url}"
+def fixture_path
+  File.expand_path('fixtures', __dir__)
+end
+
+def stub_get(path)
+  stub_request(:get, api_url(path))
+end
+
+def stub_post(path)
+  stub_request(:post, api_url(path))
+end
+
+def stub_patch(path)
+  stub_request(:patch, api_url(path))
+end
+
+def stub_delete(path)
+  stub_request(:delete, api_url(path))
+end
+
+def fixture(file)
+  File.new(fixture_path + '/' + file)
+end
+
+def api_url(url)
+  "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/#{url}"
+end
+
+def stub_headers
+  {
+    'Accept'=>'*/*',
+    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+    'Authorization'=>'Basic Zm9vOmJhcg==',
+    'Host'=>'api.businesscentral.dynamics.com',
+    'User-Agent'=>'Ruby'
+  }
 end
