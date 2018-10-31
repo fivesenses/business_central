@@ -6,7 +6,7 @@ class BusinessCentral::AccountTest < Test::Unit::TestCase
     assert_not_nil api_account
   end
 
-  def test_get_customers
+  def test_get_accounts
     stub_get("accounts").
       with(headers: stub_headers).
       to_return( status: 200, body: fixture("get_accounts_success.json"))
@@ -15,7 +15,7 @@ class BusinessCentral::AccountTest < Test::Unit::TestCase
     assert accounts.length > 0
   end
 
-  def test_get_customer
+  def test_get_account
     stub_get("accounts/1234").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_account_success.json"))

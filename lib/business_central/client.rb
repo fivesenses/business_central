@@ -40,7 +40,7 @@ module BusinessCentral
     end
 
     def delete(url, etag)
-      request = build_request({ verb: "Delete", url: url, data: data, etag: etag })
+      request = build_request({ verb: "Delete", url: url, etag: etag })
       perform_request(request)
     end
 

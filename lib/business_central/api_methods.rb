@@ -28,6 +28,11 @@ module BusinessCentral::ApiMethods
     patch(args[0], args[1], args[2]).first
   end
 
+  def delete(*args)
+    return if args.length == 0
+    destroy(args[0], args[1])
+  end
+
   private
   def find_collection
     response = @client.get("/#{api_object}")
@@ -53,10 +58,10 @@ module BusinessCentral::ApiMethods
     process(response)
   end
 
-  def delete(id, etag)
+  def destroy(id, etag)
     response = @client.delete("/#{api_object}/#{id}", etag)
     handle_error(response)
-    process(response)
+    response.code
   end
 
   def api_object
