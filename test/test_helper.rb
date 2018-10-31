@@ -8,7 +8,6 @@ require 'simplecov-cobertura'
 require 'webmock'
 require 'webmock/test_unit'
 
-require 'business_central'
 
 SimpleCov.configure do
   add_filter %r{^/opt/hostedtoolcache/}
@@ -20,8 +19,9 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::CoberturaFormatter
 ]
 
+# Start SimpleCov before including the library
 SimpleCov.start
-
+require 'business_central'
 
 begin
   Bundler.setup(:default, :development)
@@ -43,23 +43,6 @@ def bc_client
     api_password: "bar",
     test_mode: true
   })
-end
-
-def fixture_setup(fixture)
-  register_fixtures
-  load_fixture(fixture)
-end
-
-def register_fixtures; end
-
-def load_fixture(fixture)
-  WebMock::Fixtures::Manager.run([fixture])
-end
-
-def register_fixture(fixture, operation, url)
-  file = "test/fixtures/#{fixture.to_s}.json"
-  WebMock::Fixtures::Manager.
-    register_fixture_file(fixture, operation, url, file)
 end
 
 def fixture_path

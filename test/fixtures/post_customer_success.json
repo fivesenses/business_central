@@ -1,0 +1,35 @@
+{
+  "id": "id-value",
+  "number": "10000",
+  "displayName": "Coho Winery",
+  "type": "Company",
+  "address": {
+    "street": "192 Market Square",
+    "city": "Atlanta",
+    "state": "GA",
+    "countryLetterCode": "US",
+    "postalCode": "31772"
+  },
+  "phoneNumber": "",
+  "email": "jim.glynn@cronuscorp.net",
+  "website": "",
+  "taxLiable": true,
+  "taxAreaId": "taxAreaId-value",
+  "taxAreaDisplayName": "tax area",
+  "taxRegistrationNumber": "28012001T",
+  "currencyCode": "USD",
+  "paymentTerms": {
+    "code": "1M(8D)",
+    "description": "1 Month/2% 8 days"
+  },
+  "shipmentMethod": null,
+  "paymentMethod": {
+    "code": "BANK",
+    "description": "Bank Transfer"
+  },
+  "blocked": " ",
+  "balance": 0,
+  "overdueAmount": 0,
+  "totalSalesExcludingTax": 0,
+  "lastModifiedDateTime": "2017-03-07T00:35:28.983Z"
+}

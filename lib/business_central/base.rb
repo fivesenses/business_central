@@ -4,6 +4,8 @@
 
 module BusinessCentral
   class Base
+    include BusinessCentral::ApiMethods
+
     attr_reader :client
 
     # The +Base+ class used to provide functionality to subclasses
@@ -12,30 +14,6 @@ module BusinessCentral
     # +client+:: A +BusinessCentral::Client+ instance
     def initialize(client)
       @client = client.nil? ? BusinessCentral::Client.new() : client
-    end
-
-    def find_collection(object_url)
-      response = @client.get("/#{object_url}")
-      handle_error(response)
-      process(response)
-    end
-
-    def find_by_id(object_url, id)
-      response = @client.get("/#{object_url}/#{id}")
-      handle_error(response)
-      process(response)
-    end
-
-    def create(object_url, data)
-      response = @client.post("/#{object_url}", data)
-      handle_error(response)
-      process(response)
-    end
-
-    def update(object_url, id, etag, data)
-      response = @client.patch("/#{object_url}/#{id}", etag, data)
-      handle_error(response)
-      process(response)
     end
 
     def process(response)

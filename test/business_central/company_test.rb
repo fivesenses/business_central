@@ -11,7 +11,7 @@ class BusinessCentral::CompanyTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_company_success.json"))
 
-    company = BusinessCentral::Company.new(bc_client).company("1234")
+    company = BusinessCentral::Company.new(bc_client).get("1234")
     assert_equal "CRONUS AU", company.name
     assert_equal "CRONUS AU", company.displayName
   end
@@ -21,9 +21,8 @@ class BusinessCentral::CompanyTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_companies_success.json"))
 
-    companies = BusinessCentral::Company.new(bc_client).companies
+    companies = BusinessCentral::Company.new(bc_client).get
     assert_equal 1, companies.length
     assert_equal "CRONUS AU", companies.first.displayName
   end
-
 end
