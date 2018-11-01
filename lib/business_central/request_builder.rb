@@ -4,6 +4,7 @@
 
 class BusinessCentral::RequestBuilder
   attr_accessor :request
+  attr_reader :verb, :url, :etag, :data
 
   def initialize(client, opts = {})
     @client = client

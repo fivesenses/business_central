@@ -5,6 +5,8 @@ class BusinessCentral::RequestBuilderTest < Test::Unit::TestCase
     @builder = BusinessCentral::RequestBuilder.new(bc_client, { verb: "Get",
                                                                 url: "/customers" })
     assert_not_nil @builder
+    assert_equal "Get", @builder.verb
+    assert_equal "/customers", @builder.url
   end
 
   def test_request_object
@@ -36,6 +38,6 @@ class BusinessCentral::RequestBuilderTest < Test::Unit::TestCase
     @builder = BusinessCentral::RequestBuilder.new(bc_client, { verb: "Post",
                                                                 url: "/customers",
                                                                 data: { displayName: "Chicken Feet" } })
-
   end
+
 end
