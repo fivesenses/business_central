@@ -30,7 +30,12 @@ module BusinessCentral::Response
     end
 
     def process_data(data)
-      @compiled_data << OpenStruct.new(data)
+      new_record = OpenStruct.new(data)
+      unless data["@odata.etag"].nil?
+        new_record.etag = data["@odata.etag"]#.gsub('"', '')
+      end
+      @compiled_data << new_record
+      # @compiled_data << OpenStruct.new(data)
     end
   end
 end

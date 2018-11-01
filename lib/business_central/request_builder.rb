@@ -16,6 +16,7 @@ class BusinessCentral::RequestBuilder
 
   def build
     @request = request_object.new(uri)
+    @request.content_type = "application/json"
     @request.basic_auth(@client.api_username, @client.api_password)
     add_etag
     add_data
@@ -28,7 +29,7 @@ class BusinessCentral::RequestBuilder
 
   def add_data
     return if @data.nil?
-    @request.set_form_data(@data)
+    @request.body = JSON.generate(@data)
   end
 
   def request_object
