@@ -27,7 +27,7 @@ module BusinessCentral
     end
 
     def handle_error(response)
-      # raise ServiceUnavailableError unless response.code == 200
+      # raise ServiceUnavailableError unless ["200", "201", "204"].include?(response.code)
     end
 
     def uri_options(filter, opts)
