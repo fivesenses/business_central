@@ -21,6 +21,18 @@ module BusinessCentral
         new(dataset(response)).compiled_data
     end
 
+    def build_url(parent_id, options = {})
+      BusinessCentral::URLBuilder.new(api_object_parent, parent_id, options).url
+    end
+
+    def build_options(child_id, sequence)
+      {
+        child_path: api_object,
+        child_id: child_id,
+        sequence: sequence
+      }
+    end
+
     private
     def base_url
       @client.base_url

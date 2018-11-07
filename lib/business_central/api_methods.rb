@@ -68,6 +68,10 @@ module BusinessCentral::ApiMethods
     self.class.const_get(:API_OBJECT)
   end
 
+  def api_object_parent
+    self.class.const_get(:API_OBJECT_PARENT)
+  end
+
   def supported_method?(method_name)
     self.class.const_get(:SUPPORTED_METHODS).include?(method_name)
   end
