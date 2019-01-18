@@ -3,7 +3,7 @@
 #
 
 module BusinessCentral
-  class IncomeStatement < Test::Unit::TestCase
+  class IncomeStatement < BusinessCentral::Base
     API_OBJECT = "incomeStatement"
     SUPPORTED_METHODS = [:get]
   end
