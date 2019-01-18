@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'business_central/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "business-central"
+  spec.name          = "business_central"
   spec.version       = BusinessCentral::VERSION
   spec.authors       = ["Jordan Brock"]
   spec.email         = ["jordan.brock@fivesenses.com.au"]
