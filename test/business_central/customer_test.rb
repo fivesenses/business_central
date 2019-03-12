@@ -25,6 +25,17 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
     assert_equal "Chicken Feet", customer.displayName
   end
 
+  def test_customer_filter
+    stub_get("customers?$filter=number eq '1234'").
+      with(headers: stub_headers).
+      to_return(
+        status: 200,
+        body: fixture("filter_customers_success.json"))
+
+    search = BusinessCentral::Customer.new(bc_client).collection_filter("number eq '1234'")
+    assert_equal "Example Company", search.first.displayName
+  end
+
   def test_customer_update
     data = { displayName: "Bill Example" }
     etag = "W/\"JzQ0O1JpdzI0TmU4NEpRS0R6cHAzTkVBdHpxYXorc0VLbnJ4OVQyTFJjclREeG89MTswMDsn\""

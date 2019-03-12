@@ -19,6 +19,12 @@ module BusinessCentral
       end
     end
 
+    def collection_filter(*args)
+      response = @client.get("/#{api_object}?$filter=#{args[0]}")
+      handle_error(response)
+      process(response)
+    end
+
     def create(*args)
       return if args.length == 0
       post(args[0]).first
