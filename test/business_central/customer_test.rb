@@ -32,7 +32,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
         status: 200,
         body: fixture("filter_customers_success.json"))
 
-    search = BusinessCentral::Customer.new(bc_client).collection_filter("number eq '1234'")
+    search = BusinessCentral::Customer.new(bc_client).query("number eq '1234'")
     assert_equal "Example Company", search.first.displayName
   end
 

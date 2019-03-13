@@ -19,7 +19,7 @@ module BusinessCentral
       end
     end
 
-    def collection_filter(*args)
+    def query(*args)
       response = @client.get("/#{api_object}?$filter=#{args[0]}")
       handle_error(response)
       process(response)
