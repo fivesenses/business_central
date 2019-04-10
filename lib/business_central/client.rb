@@ -4,7 +4,8 @@
 #
 module BusinessCentral
   class Client
-    attr_reader :api_username, :api_password, :api_tenant, :api_company_id
+    attr_reader :api_username, :api_password, :api_tenant, :api_company_id,
+      :api_host, :api_version, :api_path
 
     def initialize(opts = {})
       @test_mode = opts[:test_mode] ||= false
@@ -14,10 +15,11 @@ module BusinessCentral
       @api_username = opts[:api_username] ||= ENV['BC_USERNAME']
       @api_password = opts[:api_password] ||= ENV['BC_PASSWORD']
       @api_company_id = opts[:api_company_id] ||= ENV['BC_COMPANY_ID']
+      @api_host = host
     end
 
     def base_url
-      url = "#{host}#{@api_version}/#{@api_tenant}#{@api_path}"
+      url = "#{@api_host}#{@api_version}/#{@api_tenant}#{@api_path}"
       unless @api_company_id.nil?
         url += "/companies/#{@api_company_id}"
       end
@@ -65,14 +67,15 @@ module BusinessCentral
     end
 
     def perform_request(request)
+      puts request.to_hash
       Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
         http.request(request)
       end
     end
 
-    def basic_auth
-      "#{@api_username}:#{@api_password}"
-    end
+    # def basic_auth
+    #   "#{@api_username}:#{@api_password}"
+    # end
 
     def host
       @test_mode ? BusinessCentral::ENDPOINT_TEST : BusinessCentral::ENDPOINT_PRODUCTION
