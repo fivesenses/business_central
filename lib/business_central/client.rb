@@ -67,7 +67,6 @@ module BusinessCentral
     end
 
     def perform_request(request)
-      puts request.to_hash
       Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
         http.request(request)
       end
