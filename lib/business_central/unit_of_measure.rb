@@ -4,7 +4,7 @@
 
 module BusinessCentral
   class UnitOfMeasure < BusinessCentral::Base
-    API_OBJECT = "unitOfMeasure"
+    API_OBJECT = "unitsOfMeasure"
     SUPPORTED_METHODS = [:get, :create, :update, :delete]
   end
 end
