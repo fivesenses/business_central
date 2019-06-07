@@ -25,7 +25,7 @@ module BusinessCentral
     end
 
     def create(sales_invoice_id, data)
-      url = "/#{API_OBJECT_PARENT}/#{sales_invoice_id}/#{API_OBJECT}"
+      url = "/#{API_OBJECT_PARENT}(#{sales_invoice_id})/#{API_OBJECT}"
 
       response = @client.post(url, data)
       handle_error(response)
