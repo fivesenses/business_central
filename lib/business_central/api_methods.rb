@@ -48,7 +48,7 @@ module BusinessCentral
     end
 
     def find_by_id(id)
-      response = @client.get("/#{api_object}/#{id}")
+      response = @client.get("/#{api_object}(#{id})")
       handle_error(response)
       process(response)
     end
@@ -60,13 +60,13 @@ module BusinessCentral
     end
 
     def patch(id, etag, data)
-      response = @client.patch("/#{api_object}/#{id}", etag, data)
+      response = @client.patch("/#{api_object}(#{id})", etag, data)
       handle_error(response)
       process(response)
     end
 
     def destroy(id, etag)
-      response = @client.delete("/#{api_object}/#{id}", etag)
+      response = @client.delete("/#{api_object}(#{id})", etag)
       handle_error(response)
       response.code
     end

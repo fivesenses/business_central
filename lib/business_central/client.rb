@@ -21,7 +21,7 @@ module BusinessCentral
     def base_url
       url = "#{@api_host}#{@api_version}/#{@api_tenant}#{@api_path}"
       unless @api_company_id.nil?
-        url += "/companies/#{@api_company_id}"
+        url += "/companies(#{@api_company_id})"
       end
       url
     end
