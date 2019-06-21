@@ -70,7 +70,7 @@ def fixture(file)
 end
 
 def api_url(url)
-  "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/#{url}"
+  "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/v1.0/#{url}"
 end
 
 def stub_headers

@@ -16,7 +16,7 @@ class BusinessCentral::PaymentTermTest < Test::Unit::TestCase
   end
 
   test "should get a single PaymentTerm" do
-    stub_get("paymentTerms/1234").
+    stub_get("paymentTerms(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_paymentTerm_success.json"))
 

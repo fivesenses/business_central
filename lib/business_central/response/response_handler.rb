@@ -30,12 +30,16 @@ module BusinessCentral::Response
     end
 
     def process_data(data)
-      new_record = OpenStruct.new(data)
+      new_record = JSON.parse(sanitize(data), object_class: OpenStruct)
+
       unless data["@odata.etag"].nil?
-        new_record.etag = data["@odata.etag"]#.gsub('"', '')
+        new_record.etag = data["@odata.etag"]
       end
       @compiled_data << new_record
-      # @compiled_data << OpenStruct.new(data)
+    end
+
+    def sanitize(data)
+      data.is_a?(Hash) ? data.to_json : data
     end
   end
 end

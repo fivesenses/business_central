@@ -7,7 +7,7 @@ class BusinessCentral::SalesInvoiceTest < Test::Unit::TestCase
   end
 
   test "should return a salesInvoice" do
-    stub_get("salesInvoices/1234").
+    stub_get("salesInvoices(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_sales_invoice_success.json"))
 

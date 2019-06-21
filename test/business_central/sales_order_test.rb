@@ -20,7 +20,7 @@ class BusinessCentral::SalesOrderTest < Test::Unit::TestCase
   end
 
   def test_get_with_id
-    stub_get("salesOrders/1234").
+    stub_get("salesOrders(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_salesOrder_success.json"))
 

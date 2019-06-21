@@ -18,11 +18,23 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
   end
 
   def test_customer_success
-    stub_get("customers/1234").with(headers: stub_headers).
+    stub_get("customers(1234)").with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_customer_success.json"))
 
     customer = BusinessCentral::Customer.new(bc_client).get("1234")
     assert_equal "Chicken Feet", customer.displayName
+  end
+
+  test "should return the extra details for a customer" do
+    stub_get("customers(1234)?$expand=customerFinancialDetails").
+      with(headers: stub_headers).
+      to_return(
+        status: 200,
+        body: fixture("get_customer_expanded_200.json"))
+
+    customer = BusinessCentral::Customer.new(bc_client).get("1234", "$expand=customerFinancialDetails")
+    assert_equal "Chicken Feet", customer.displayName
+    assert_equal 616, customer.customerFinancialDetails.first.balance
   end
 
   def test_customer_filter
@@ -40,7 +52,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
     data = { displayName: "Bill Example" }
     etag = "W/\"JzQ0O1JpdzI0TmU4NEpRS0R6cHAzTkVBdHpxYXorc0VLbnJ4OVQyTFJjclREeG89MTswMDsn\""
 
-    stub_patch("customers/1234").with(
+    stub_patch("customers(1234)").with(
       headers: stub_headers.merge({'If-Match'=>etag}),
       body: data
     ).to_return(

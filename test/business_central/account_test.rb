@@ -16,7 +16,7 @@ class BusinessCentral::AccountTest < Test::Unit::TestCase
   end
 
   def test_get_account
-    stub_get("accounts/1234").
+    stub_get("accounts(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_account_success.json"))
 

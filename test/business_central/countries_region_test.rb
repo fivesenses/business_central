@@ -7,7 +7,7 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
   end
 
   def test_get_country_region
-    stub_get("countriesRegions/1234").
+    stub_get("countriesRegions(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_countries_region_success.json"))
 
@@ -28,7 +28,7 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
     data = { displayName: "AustraliaFeet" }
     etag = "W/\"JzQ0OzVWd1JHeEdVQ0p3bkZTVWhQMVlsakhYcDdLRmxwUDJQV1BxWERkdWNtbEk9MTswMDsn\""
 
-    stub_patch("countriesRegions/1234").
+    stub_patch("countriesRegions(1234)").
       with(headers: stub_headers.merge({'If-Match'=>etag}), body: data).
       to_return(status: 200, body: fixture("patch_countries_region_success.json"))
 
@@ -52,7 +52,7 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
   def test_delete_countries_region
     etag = "W/\"JzQ0OzVWd1JHeEdVQ0p3bkZTVWhQMVlsakhYcDdLRmxwUDJQV1BxWERkdWNtbEk9MTswMDsn\""
 
-    stub_delete("countriesRegions/1234").
+    stub_delete("countriesRegions(1234)").
       with(headers: stub_headers.merge({'If-Match'=>etag})).
       to_return(status: 204)
 

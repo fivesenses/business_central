@@ -19,7 +19,7 @@ module BusinessCentral
     end
 
     def build
-      @url = "/#{@parent_path}/#{@parent_id}"
+      @url = "/#{@parent_path}(#{@parent_id})"
       @url += "/#{@child_path}" unless @child_path.nil?
       @url += "?(#{parameters})" unless @child_id.nil?
     end

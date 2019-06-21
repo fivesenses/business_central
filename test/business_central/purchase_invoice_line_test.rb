@@ -7,7 +7,7 @@ class BusinessCentral::PurchaseInvoiceLineTest < Test::Unit::TestCase
   end
 
   def test_get_collection
-    stub_get("purchaseInvoices/1234/purchaseInvoiceLines").
+    stub_get("purchaseInvoices(1234)/purchaseInvoiceLines").
       with(headers: stub_headers).
       to_return(status: 200,
                 body: fixture("get_purchase_invoice_lines_success.json"))
@@ -19,7 +19,7 @@ class BusinessCentral::PurchaseInvoiceLineTest < Test::Unit::TestCase
   end
 
   def test_get_invoice
-    stub_get("purchaseInvoices/1234/purchaseInvoiceLines?(4321, 10000)").
+    stub_get("purchaseInvoices(1234)/purchaseInvoiceLines?(4321, 10000)").
       with(headers: stub_headers).
       to_return(status: 200,
                 body: fixture("get_purchase_invoice_line_success.json"))

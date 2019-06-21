@@ -17,6 +17,7 @@ require 'business_central/company_information'
 require 'business_central/countries_region'
 require 'business_central/currency'
 require 'business_central/customer'
+require 'business_central/customer_financial_details'
 require 'business_central/customer_payment'
 require 'business_central/customer_payments_journal'
 require 'business_central/customer_sales'
@@ -53,7 +54,7 @@ require 'business_central/vendor_purchase'
 
 
 module BusinessCentral
-  API_PATH = "/api/beta"
+  API_PATH = "/api/v1.0"
   API_VERSION = "/v1.0"
   ENDPOINT_TEST = "https://api.businesscentral.dynamics.com"
   ENDPOINT_PRODUCTION = "https://api.businesscentral.dynamics.com"

@@ -7,7 +7,7 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
   end
 
   test "should return a sales invoice line" do
-    stub_get("salesInvoices/1234/salesInvoiceLines?(4321, 10000)").
+    stub_get("salesInvoices(1234)/salesInvoiceLines?(4321, 10000)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_sales_invoice_line_success.json"))
 
@@ -16,7 +16,7 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
   end
 
   test "should return all invoice lines for a given salesInvoice" do
-    stub_get("salesInvoices/1234/salesInvoiceLines").
+    stub_get("salesInvoices(1234)/salesInvoiceLines").
       with(headers: stub_headers).
       to_return(status:200, body: fixture("get_sales_invoice_lines_success.json"))
 
@@ -27,7 +27,7 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
   end
 
   test "should be able to create a new invoiceLine" do
-    stub_post("salesInvoices/1234/salesInvoiceLines").
+    stub_post("salesInvoices(1234)/salesInvoiceLines").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("post_salesInvoiceLine_success.json"))
 

@@ -7,7 +7,7 @@ class BusinessCentral::CompanyTest < Test::Unit::TestCase
   end
 
   def test_company_success
-    stub_get("companies/1234").
+    stub_get("companies(1234)").
       with(headers: stub_headers).
       to_return(status: 200, body: fixture("get_company_success.json"))
 
