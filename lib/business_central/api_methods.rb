@@ -12,10 +12,13 @@ module BusinessCentral
     end
 
     def get(*args)
-      if args.length == 0
+      case args.length
+      when 0
         find_collection
-      else
+      when 1
         find_by_id(args[0]).first
+      else
+        find_by_id_with_options(*args).first
       end
     end
 
@@ -49,6 +52,15 @@ module BusinessCentral
 
     def find_by_id(id)
       response = @client.get("/#{api_object}(#{id})")
+      handle_error(response)
+      process(response)
+    end
+
+    def find_by_id_with_options(*args)
+      id = args[0]
+      options = args[1]
+
+      response = @client.get("/#{api_object}(#{id})?#{options}")
       handle_error(response)
       process(response)
     end
