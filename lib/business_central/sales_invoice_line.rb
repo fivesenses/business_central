@@ -9,10 +9,9 @@ module BusinessCentral
 
     SUPPORTED_METHODS = [:get, :create, :update, :delete]
 
-    def get(sales_invoice_id, sales_invoice_line_id = nil, sequence = nil)
-      url = build_url(sales_invoice_id,
-                      build_options(sales_invoice_line_id, sequence))
-
+    def get(sales_invoice_id, sales_invoice_line_id = nil)
+      url = build_url(sales_invoice_id, { child_path: API_OBJECT,
+                                          child_id: sales_invoice_line_id })
 
       response = @client.get(url)
       handle_error(response)
