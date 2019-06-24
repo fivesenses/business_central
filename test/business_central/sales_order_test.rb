@@ -29,8 +29,4 @@ class BusinessCentral::SalesOrderTest < Test::Unit::TestCase
 
     assert_equal "101002", sales_order.number
   end
-
-  def test_supported_method
-    api_salesOrder = BusinessCentral::SalesOrder.new(bc_client)
-  end
 end
