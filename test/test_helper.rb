@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
+require 'mocha/test_unit'
 
 require 'simplecov'
 require 'simplecov-cobertura'

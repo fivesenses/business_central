@@ -30,7 +30,6 @@ module BusinessCentral
       handle_error(response)
       result = process(response)
       return result.first
-
     end
   end
 end
