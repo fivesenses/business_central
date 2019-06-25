@@ -98,23 +98,33 @@ module BusinessCentral
     end
 
     protected
+
+    # @param url [String] the URL to convert
+    # @returns URI [URI]
+    #
     def get_uri(url)
       URI(base_url + url)
     end
 
+    # Build the actual Request object used to perform the operation
+    #
+    # @param opts [Hash] contains the request information
+    # @returns [Net::HTTP::Request]
+    #
     def build_request(opts)
       BusinessCentral::RequestBuilder.new(self, opts).request
     end
 
+    # Performs the actual operation
+    #
+    # @param request [Net::HTTP::Request]
+    # @returns [Net::HTTP::Response]
+    #
     def perform_request(request)
       Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
         http.request(request)
       end
     end
-
-    # def basic_auth
-    #   "#{@api_username}:#{@api_password}"
-    # end
 
     def host
       @test_mode ? BusinessCentral::ENDPOINT_TEST : BusinessCentral::ENDPOINT_PRODUCTION
