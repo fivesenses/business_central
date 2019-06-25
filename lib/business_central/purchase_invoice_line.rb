@@ -7,22 +7,12 @@ module BusinessCentral
     API_OBJECT_PARENT = "purchaseInvoices"
     API_OBJECT = "purchaseInvoiceLines"
 
-    def get(purchase_invoice_id, purchase_invoice_line_id = nil, sequence = nil)
-      url = build_url(purchase_invoice_id,
-                      build_options(purchase_invoice_line_id, sequence))
-
-      response = @client.get(url)
-      handle_error(response)
-      results = process(response)
-
-      if results.is_a?(Array)
-        return results.first if results.length == 1
-        return results
-      end
+    def get(purchase_invoice_id, purchase_invoice_line_id = nil)
+      get_child(purchase_invoice_id, purchase_invoice_line_id)
     end
 
     def create(purchase_invoice_id, data)
-      url = build_url(purchase_invoice_id, build_options)
+      url = build_url(purchase_invoice_id, nil)
 
       response = @client.post(url, data)
       handle_error(response)
@@ -32,7 +22,7 @@ module BusinessCentral
     end
 
     def update(purchase_invoice_id, purchase_invoice_line_id, etag, data)
-      url = build_url(purchase_invoice_id, build_options(purchase_invoice_line_id))
+      url = build_url(purchase_invoice_id, purchase_invoice_line_id)
 
       response = @client.patch(url, etag, data)
       handle_error(repsonse)
@@ -42,7 +32,7 @@ module BusinessCentral
     end
 
     def delete(purchase_invoice_id, purchase_invoice_line_id, etag)
-      url = build_url(purchase_invoice_id, build_options(purchase_invoice_line_id))
+      url = build_url(purchase_invoice_id, purchase_invoice_line_id)
 
       response = @client.delete(url, etag)
       handle_error(response)

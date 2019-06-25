@@ -7,8 +7,8 @@ module BusinessCentral
     API_OBJECT_PARENT = "journals"
     API_OBJECT = "journalLines"
 
-    def get(journal_id, journal_line_id)
-      url = build_url(journal_id, build_options(journal_line_id, nil))
+    def get(journal_id, journal_line_id=nil)
+      get_child(journal_id, journal_line_id)
     end
   end
 end

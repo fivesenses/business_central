@@ -50,6 +50,34 @@ module BusinessCentral
       end
     end
 
+    # Gets a child object, or array of child objects
+    #
+    # When only the parent_id is supplied, the GET will return all child
+    # objects of that parent
+    # eg
+    #   get_child(1234)
+    #
+    # when both paremeters are present, the GET will return the single child
+    # object
+    # eg
+    #   get_child(1234, 4321)
+    #
+    # @param parent_id [String]
+    # @param child_id [String]
+    #
+    def get_child(parent_id, child_id = nil)
+      url = build_url(parent_id, child_id)
+
+      response = @client.get(url)
+      handle_error(response)
+      results = process(response)
+
+      if results.is_a?(Array)
+        return results.first if results.length == 1
+        return results
+      end
+    end
+
     # Performs a GET operation with a supplied filter string, to search for
     # remote objects.
     #

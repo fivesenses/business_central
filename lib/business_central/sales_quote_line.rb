@@ -7,8 +7,8 @@ module BusinessCentral
     API_OBJECT_PARENT = "salesQuotes"
     API_OBJECT = "salesQuoteLines"
 
-    def get(sales_quote_id, sales_quote_line_id = nil, sequence = nil)
-      url = build_url(sales_quote_id, build_options(sales_quote_line_id, sequence))
+    def get(sales_quote_id, sales_quote_line_id = nil)
+      get_child(sales_quote_id, sales_quote_line_id)
     end
   end
 end

@@ -7,9 +7,8 @@ module BusinessCentral
     API_OBJECT_PARENT = "salesCreditMemos"
     API_OBJECT = "salesCreditMemoLines"
 
-    def get(sales_credit_memo_id, sales_credit_memo_line_id, sequence)
-      url = build_url(sales_credit_memo_id,
-                      build_options(sales_credit_memo_line_id, sequence))
+    def get(sales_credit_memo_id, sales_credit_memo_line_id = nil)
+      get_child(sales_credit_memo_id, sales_credit_memo_line_id)
     end
   end
 end
