@@ -9,8 +9,8 @@ module BusinessCentral::Response
 
     # Constructor
     #
-    # Params:
-    # +dataset+: +Hash+|+Array+ the result from the API query
+    # @param dataset [Hash | Array] the result from the API operation
+    #
     def initialize(dataset)
       @compiled_data = []
       @dataset = dataset
@@ -23,12 +23,24 @@ module BusinessCentral::Response
       @dataset.is_a?(Array) ? process_array : process_data(@dataset)
     end
 
+    # If the supplied result from the API operation is an array, iterate over
+    # it and process each result into @compiled_data
+    #
     def process_array
       @dataset.each do |data|
         process_data(data)
       end
     end
 
+    # Parse the JSON response from the API into an OpenStruct object. This will
+    # also parse any child objects, which allows the data to be accessed via
+    # regular chaining
+    #
+    # eg 
+    #   company.address.state
+    #
+    # @param data [JSON]
+    #
     def process_data(data)
       new_record = JSON.parse(sanitize(data), object_class: OpenStruct)
 
@@ -38,6 +50,8 @@ module BusinessCentral::Response
       @compiled_data << new_record
     end
 
+    # Ensures the data is in JSON format
+    #
     def sanitize(data)
       data.is_a?(Hash) ? data.to_json : data
     end
