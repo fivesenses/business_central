@@ -81,6 +81,21 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
     assert_equal "USD", customer.currencyCode
   end
 
+  test "should return an error when a customer already exists" do
+    stub_post("customers").
+      with(headers: stub_headers, body: new_customer).
+      to_return(
+        status: 409,
+        body: fixture("post_customer_409.json"))
+
+    customer = BusinessCentral::Customer.
+      new(bc_client).
+      create(new_customer)
+
+    assert_not_nil customer.error
+    assert_equal "Internal_EntityWithSameKeyExists", customer.error.code
+  end
+
   def new_customer
     {
       "number": "10000",

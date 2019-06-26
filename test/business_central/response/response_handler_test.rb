@@ -3,7 +3,8 @@ require 'test_helper'
 class BusinessCentral::Response::ResponseHandlerTest < Test::Unit::TestCase
 
   test "should process the returned data" do
-    response = BusinessCentral::Response::ResponseHandler.new(sample_company.to_json)
+    response = BusinessCentral::Response::ResponseHandler.
+      new(sample_company.to_json)
     company = response.compiled_data.first
     assert_equal "1234", company.id
   end
@@ -16,7 +17,9 @@ class BusinessCentral::Response::ResponseHandlerTest < Test::Unit::TestCase
   end
 
   test "should process data returned with customer financials" do
-    sample = sample_company.merge({"customerFinancialDetails":sample_financial_data}).to_json
+    sample = sample_company.merge({
+      "customerFinancialDetails":sample_financial_data
+    }).to_json
     response = BusinessCentral::Response::ResponseHandler.new(sample)
     company = response.compiled_data.first
 

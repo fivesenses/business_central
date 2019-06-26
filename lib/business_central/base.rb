@@ -42,19 +42,6 @@ module BusinessCentral
       BusinessCentral::URLBuilder.new(api_object_parent, parent_id, options).url
     end
 
-    # Build an options Hash to use for building URL's for child objects
-    #
-    # @params child_id [String]
-    # @params sequence [String]
-    #
-    def build_options(child_id, sequence)
-      {
-        child_path: api_object,
-        child_id: child_id,
-        sequence: sequence
-      }
-    end
-
     private
 
     # Check to see if the response contains an error and raise an error if
