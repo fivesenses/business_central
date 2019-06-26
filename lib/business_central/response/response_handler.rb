@@ -27,9 +27,7 @@ module BusinessCentral::Response
     # it and process each result into @compiled_data
     #
     def process_array
-      @dataset.each do |data|
-        process_data(data)
-      end
+      @dataset.each { |data| process_data(data) }
     end
 
     # Parse the JSON response from the API into an OpenStruct object. This will

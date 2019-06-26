@@ -94,6 +94,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
 
     assert_not_nil customer.error
     assert_equal "Internal_EntityWithSameKeyExists", customer.error.code
+    assert_match(/Customer already exists/, customer.error.message)
   end
 
   def new_customer
