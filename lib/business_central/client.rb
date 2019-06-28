@@ -20,14 +20,13 @@ module BusinessCentral
     # @param opts [Hash] A Hash with login configuration options
     #
     def initialize(opts = {})
-      @test_mode = opts[:test_mode] ||= false
       @api_version = opts[:api_version] ||= BusinessCentral::API_VERSION
       @api_path = opts[:api_path] ||= BusinessCentral::API_PATH
       @api_tenant = opts[:api_tenant] ||= ENV['BC_TENANT']
       @api_username = opts[:api_username] ||= ENV['BC_USERNAME']
       @api_password = opts[:api_password] ||= ENV['BC_PASSWORD']
       @api_company_id = opts[:api_company_id] ||= ENV['BC_COMPANY_ID']
-      @api_host = host
+      @api_host = opts[:api_host] ||= ENV['BC_HOST']
     end
 
     # Returns the URL used for interacting with the API
@@ -124,10 +123,6 @@ module BusinessCentral
       Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
         http.request(request)
       end
-    end
-
-    def host
-      @test_mode ? BusinessCentral::ENDPOINT_TEST : BusinessCentral::ENDPOINT_PRODUCTION
     end
   end
 end

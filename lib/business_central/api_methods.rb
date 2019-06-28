@@ -73,8 +73,8 @@ module BusinessCentral
       results = process(response)
 
       if results.is_a?(Array)
-        return results.first if results.length == 1
-        return results
+        return results if child_id.nil? || results.length > 1
+        return results.first
       end
     end
 

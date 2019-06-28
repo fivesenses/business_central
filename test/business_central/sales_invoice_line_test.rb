@@ -9,21 +9,32 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
   test "should return a sales invoice line" do
     stub_get("salesInvoices(1234)/salesInvoiceLines(4321-10000)").
       with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_sales_invoice_line_200.json"))
+      to_return(status: 200, body: fixture("get_salesInvoiceLine_200.json"))
 
     invoiceLine = BusinessCentral::SalesInvoiceLine.new(bc_client).get("1234", "4321-10000")
-    assert_equal "Item Description", invoiceLine.description
+    assert_equal "ROME Guest Chair, green", invoiceLine.description
   end
 
   test "should return all invoice lines for a given salesInvoice" do
     stub_get("salesInvoices(1234)/salesInvoiceLines").
       with(headers: stub_headers).
-      to_return(status:200, body: fixture("get_sales_invoice_lines_200.json"))
+      to_return(status:200, body: fixture("get_salesInvoiceLines_200.json"))
 
     invoiceLines = BusinessCentral::SalesInvoiceLine.new(bc_client).get("1234")
     assert invoiceLines.is_a?(Array)
 
-    assert_equal "Item Description", invoiceLines.first.description
+    assert_equal "LONDON Swivel Chair, blue", invoiceLines.first.description
+  end
+
+  test "should return salesInvoiceLines when only one line exists" do
+    stub_get("salesInvoices(1234)/salesInvoiceLines").
+      with(headers: stub_headers).
+      to_return(status:200, body: fixture("get_salesInvoiceLines_single_200.json"))
+
+    invoiceLines = BusinessCentral::SalesInvoiceLine.new(bc_client).get("1234")
+    assert invoiceLines.is_a?(Array)
+
+    assert_equal "ROME Guest Chair, green", invoiceLines.first.description
   end
 
   test "should be able to create a new invoiceLine" do

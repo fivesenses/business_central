@@ -9,16 +9,16 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
   def test_get_country_region
     stub_get("countriesRegions(1234)").
       with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_countries_region_success.json"))
+      to_return(status: 200, body: fixture("get_countriesRegion_200.json"))
 
     country = BusinessCentral::CountriesRegion.new(bc_client).get("1234")
-    assert_equal "Australia", country.displayName
+    assert_equal "Brazil", country.displayName
   end
 
   def test_get_countries_regions
     stub_get("countriesRegions").
       with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_countries_regions_success.json"))
+      to_return(status: 200, body: fixture("get_countriesRegions_200.json"))
 
     countries = BusinessCentral::CountriesRegion.new(bc_client).get()
     assert countries.length > 0
@@ -30,7 +30,7 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
 
     stub_patch("countriesRegions(1234)").
       with(headers: stub_headers.merge({'If-Match'=>etag}), body: data).
-      to_return(status: 200, body: fixture("patch_countries_region_success.json"))
+      to_return(status: 200, body: fixture("patch_countriesRegion_200.json"))
 
     country = BusinessCentral::CountriesRegion.new(bc_client).
       update("1234", etag, data)
@@ -41,12 +41,12 @@ class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase
   def test_create_countries_region
     stub_post("countriesRegions").
       with(headers: stub_headers, body: new_country_region).
-      to_return(status: 201, body: fixture("post_countries_region_success.json"))
+      to_return(status: 201, body: fixture("post_countriesRegion_200.json"))
 
     country = BusinessCentral::CountriesRegion.new(bc_client).
       create(new_country_region)
 
-    assert_equal "Chicken Feet", country.displayName
+    assert_equal "New Country", country.displayName
   end
 
   def test_delete_countries_region

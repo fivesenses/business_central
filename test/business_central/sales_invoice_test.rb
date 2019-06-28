@@ -9,10 +9,10 @@ class BusinessCentral::SalesInvoiceTest < Test::Unit::TestCase
   test "should return a salesInvoice" do
     stub_get("salesInvoices(1234)").
       with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_sales_invoice_200.json"))
+      to_return(status: 200, body: fixture("get_salesInvoice_200.json"))
 
     invoice = BusinessCentral::SalesInvoice.new(bc_client).get("1234")
-    assert_equal "Internet Orders", invoice.customerName
+    assert_equal "Alpine Ski House", invoice.customerName
   end
 
   test "should create a salesInvoice" do
