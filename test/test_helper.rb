@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 require 'test/unit'
+require 'mocha/test_unit'
 
 require 'simplecov'
 require 'simplecov-cobertura'
@@ -41,6 +42,7 @@ def bc_client
     api_tenant: "cronos.com",
     api_username: "foo",
     api_password: "bar",
+    api_host: "https://api.businesscentral.dynamics.com",
     test_mode: true
   })
 end
@@ -70,7 +72,7 @@ def fixture(file)
 end
 
 def api_url(url)
-  "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/beta/#{url}"
+  "https://api.businesscentral.dynamics.com/v1.0/cronos.com/api/v1.0/#{url}"
 end
 
 def stub_headers

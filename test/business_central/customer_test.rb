@@ -10,7 +10,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
     stub_get("customers").with(headers: stub_headers).
       to_return(
         status: 200,
-        body: fixture("get_customers_success.json")
+        body: fixture("get_customers_200.json")
     )
 
     customers = BusinessCentral::Customer.new(bc_client).get
@@ -18,11 +18,23 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
   end
 
   def test_customer_success
-    stub_get("customers/1234").with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_customer_success.json"))
+    stub_get("customers(1234)").with(headers: stub_headers).
+      to_return(status: 200, body: fixture("get_customer_200.json"))
 
     customer = BusinessCentral::Customer.new(bc_client).get("1234")
-    assert_equal "Chicken Feet", customer.displayName
+    assert_equal "School of Fine Art", customer.displayName
+  end
+
+  test "should return the extra details for a customer" do
+    stub_get("customers(1234)?$expand=customerFinancialDetails").
+      with(headers: stub_headers).
+      to_return(
+        status: 200,
+        body: fixture("get_customer_expanded_200.json"))
+
+    customer = BusinessCentral::Customer.new(bc_client).get("1234", "$expand=customerFinancialDetails")
+    assert_equal "School of Fine Art", customer.displayName
+    assert_equal 95193, customer.customerFinancialDetails.first.balance
   end
 
   def test_customer_filter
@@ -30,27 +42,27 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(
         status: 200,
-        body: fixture("filter_customers_success.json"))
+        body: fixture("filter_customers_200.json"))
 
     search = BusinessCentral::Customer.new(bc_client).query("number eq '1234'")
-    assert_equal "Example Company", search.first.displayName
+    assert_equal "School of Fine Art", search.first.displayName
   end
 
   def test_customer_update
     data = { displayName: "Bill Example" }
     etag = "W/\"JzQ0O1JpdzI0TmU4NEpRS0R6cHAzTkVBdHpxYXorc0VLbnJ4OVQyTFJjclREeG89MTswMDsn\""
 
-    stub_patch("customers/1234").with(
+    stub_patch("customers(1234)").with(
       headers: stub_headers.merge({'If-Match'=>etag}),
       body: data
     ).to_return(
         status: 200,
-        body: fixture("patch_customer_success.json"))
+        body: fixture("patch_customer_200.json"))
 
     customer = BusinessCentral::Customer.new(bc_client).
       update("1234", etag, data)
 
-    assert_equal "Bill Example", customer.displayName
+    assert_equal "Updated Customer Name", customer.displayName
   end
 
   def test_customer_create
@@ -59,14 +71,30 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
            body: new_customer).
       to_return(
         status: 201,
-        body: fixture("post_customer_success.json"))
+        body: fixture("post_customer_200.json"))
 
     customer = BusinessCentral::Customer.new(bc_client).
       create(new_customer)
 
     assert_equal "Coho Winery", customer.displayName
-    assert_equal "Company", customer.type
-    assert_equal "USD", customer.currencyCode
+    assert_equal "Person", customer.type
+    assert_equal "CAD", customer.currencyCode
+  end
+
+  test "should return an error when a customer already exists" do
+    stub_post("customers").
+      with(headers: stub_headers, body: new_customer).
+      to_return(
+        status: 409,
+        body: fixture("post_customer_409.json"))
+
+    customer = BusinessCentral::Customer.
+      new(bc_client).
+      create(new_customer)
+
+    assert_not_nil customer.error
+    assert_equal "Internal_EntityWithSameKeyExists", customer.error.code
+    assert_match(/Customer already exists/, customer.error.message)
   end
 
   def new_customer

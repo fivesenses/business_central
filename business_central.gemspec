@@ -6,8 +6,8 @@ require 'business_central/version'
 Gem::Specification.new do |spec|
   spec.name          = "business_central"
   spec.version       = BusinessCentral::VERSION
-  spec.authors       = ["Jordan Brock"]
-  spec.email         = ["jordan.brock@fivesenses.com.au"]
+  spec.authors       = ["Five Senses Coffee"]
+  spec.email         = ["dev@fivesenses.com.au"]
   spec.summary       = %q{Interact with the Microsoft Dynamics365 Business Central API}
   spec.description       = %q{Interact with the Microsoft Dynamics365 Business Central API}
   spec.homepage      = ""
@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov-cobertura"
   spec.add_development_dependency "test-unit"
   spec.add_development_dependency "webmock"
+  spec.add_development_dependency "mocha"
   spec.add_development_dependency "ci_reporter_test_unit"
 end

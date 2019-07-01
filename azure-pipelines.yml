@@ -12,7 +12,7 @@ steps:
     versionSpec: '>= 2.5'
 
 - script: |
-    gem install bundler
+    gem install bundler --version 1.17.2
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
@@ -28,4 +28,3 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
