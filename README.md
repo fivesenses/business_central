@@ -45,14 +45,12 @@ client = BusinessCentral::Client.new({
   api_host: ENV[BC_HOST]
 })
 
-These options are used to build the URL to access the Business Central API as
-follows:
+# These options are used to build the URL to access the Business Central API as
+# follows:
 
-```
 "https://#{@api_host}#{@api_version}/#{@api_tenant}#{@api_path}/companies(#{@api_company_id})"
 
 "https://api.businesscentral.dynamics.com/v1.0/cronus.com/api/v1.0/companies(UUID)"
-```
 
 # Returns an array of Customers
 customers = BusinessCentral::Customer.new(client).get()
