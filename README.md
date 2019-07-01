@@ -1,6 +1,6 @@
 # business-central
 
-[![Build Status](https://dev.azure.com/fivesenses/business-central/_apis/build/status/fivesenses.business-central)](https://dev.azure.com/fivesenses/business-central/_build/latest?definitionId=2)
+[![Build Status](https://dev.azure.com/fivesenses/business-central/_apis/build/status/fivesenses.business_central?branchName=master)](https://dev.azure.com/fivesenses/business-central/_build/latest?definitionId=3&branchName=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f6fbe96abdd5ea3e9406/maintainability)](https://codeclimate.com/github/fivesenses/business-central/maintainability)
 
 A Ruby library that provides access to the Microsoft Dynamics365 Business Central REST API.
@@ -31,7 +31,7 @@ The gem will automatically look for the following ENV variables, but these can
 be over-ridden in the options Hash:
 
 ```
-BC_TENANT, BC_COMPANY_ID, BC_USERNAME, BC_PASSWORD
+BC_TENANT, BC_COMPANY_ID, BC_USERNAME, BC_PASSWORD, BC_HOST
 ```
 
 ```
@@ -41,7 +41,8 @@ client = BusinessCentral::Client.new({
   api_password: ENV[BC_PASSWORD],
   api_version: ENV[BC_API_VERSION],
   api_path: ENV[BC_API_PATH],
-  api_company_id: ENV[BC_COMPANY_ID]
+  api_company_id: ENV[BC_COMPANY_ID],
+  api_host: ENV[BC_HOST]
 })
 
 # Returns an array of Customers
