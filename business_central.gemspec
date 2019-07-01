@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dev@fivesenses.com.au"]
   spec.summary       = %q{Interact with the Microsoft Dynamics365 Business Central API}
   spec.description       = %q{Interact with the Microsoft Dynamics365 Business Central API}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/fivesenses/business_central"
   spec.license       = "Mozilla"
 
   spec.files         = `git ls-files -z`.split("\x0")
