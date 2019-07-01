@@ -23,6 +23,7 @@ class BusinessCentral::ClientTest < Test::Unit::TestCase
       api_tenant: "cronos.com",
       api_username: "username",
       api_password: "password",
+      api_host: "https://api.businesscentral.dynamics.com",
       test_mode: true,
       api_company_id: "123456789",
       api_version: "/v1.0",

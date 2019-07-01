@@ -44,8 +44,8 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
 
     invoiceLine = BusinessCentral::SalesInvoiceLine.new(bc_client).create(1234, new_invoice_line)
 
-    assert_equal "Product - 250g Bag", invoiceLine.description
-    assert_equal "PRODUCT-250", invoiceLine.lineDetails["number"]
+    assert_equal "Conference Bundle 1-6", invoiceLine.description
+    assert_equal "1925-W", invoiceLine.lineDetails["number"]
   end
 
   def new_invoice_line

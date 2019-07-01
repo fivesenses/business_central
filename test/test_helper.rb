@@ -42,6 +42,7 @@ def bc_client
     api_tenant: "cronos.com",
     api_username: "foo",
     api_password: "bar",
+    api_host: "https://api.businesscentral.dynamics.com",
     test_mode: true
   })
 end
