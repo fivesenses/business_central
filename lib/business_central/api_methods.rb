@@ -92,6 +92,12 @@ module BusinessCentral
       process(response)
     end
 
+    def query_child(parent_id, query)
+      response = @client.get("/#{api_object_parent}(#{parent_id})/#{api_object}?$filter=#{query}")
+      handle_error(response)
+      process(response)
+    end
+
     # Performs the POST operation on the supplied args
     #
     # @param args [Array]]
