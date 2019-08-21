@@ -26,6 +26,17 @@ class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase
     assert_equal "LONDON Swivel Chair, blue", invoiceLines.first.description
   end
 
+  test "should return filtered invoice lines for a given salesInvoice" do
+    stub_get("salesInvoices(1234)/salesInvoiceLines?$filter=lineType%20eq%20'Item'").
+      with(headers: stub_headers).
+      to_return(status: 200, body: fixture("get_salesInvoiceLines_200.json"))
+
+    invoiceLines = BusinessCentral::SalesInvoiceLine.new(bc_client).
+      query_child("1234", "lineType eq 'Item'")
+
+    assert invoiceLines.is_a?(Array)
+  end
+
   test "should return salesInvoiceLines when only one line exists" do
     stub_get("salesInvoices(1234)/salesInvoiceLines").
       with(headers: stub_headers).
