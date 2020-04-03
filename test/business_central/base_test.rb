@@ -25,4 +25,34 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
     url = base.build_url("1234", "4321")
     assert_equal "/foo(1234)/bar(4321)", url
   end
+
+  test "should return a RateLimitError" do
+    stub_get("companies").
+      with(headers: stub_headers).
+      to_return(status: 209)
+
+    assert_raise(RateLimitError) do
+      BusinessCentral::Company.new(bc_client).get
+    end
+  end
+
+  test "should return a ServiceError" do
+    stub_get("companies").
+      with(headers: stub_headers).
+      to_return(status: 500)
+
+    assert_raise(ServiceError) do
+      BusinessCentral::Company.new(bc_client).get
+    end
+  end
+
+  test "should return a ServiceUnavailableError" do
+    stub_get("companies").
+      with(headers: stub_headers).
+      to_return(status: 404)
+
+    assert_raise(ServiceUnavailableError) do
+      BusinessCentral::Company.new(bc_client).get
+    end
+  end
 end

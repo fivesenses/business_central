@@ -65,3 +65,5 @@ module BusinessCentral
 end
 
 ServiceUnavailableError = Class.new(StandardError)
+ServiceError = Class.new(StandardError)
+RateLimitError = Class.new(StandardError)
