@@ -1,7 +1,6 @@
 # business-central
 
-[![Build Status](https://dev.azure.com/fivesenses/business-central/_apis/build/status/fivesenses.business_central?branchName=master)](https://dev.azure.com/fivesenses/business-central/_build/latest?definitionId=3&branchName=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f6fbe96abdd5ea3e9406/maintainability)](https://codeclimate.com/github/fivesenses/business-central/maintainability)
+![Ruby](https://github.com/fivesenses/business_central/workflows/Ruby/badge.svg)
 
 A Ruby library that provides access to the Microsoft Dynamics365 Business Central REST API.
 
