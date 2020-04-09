@@ -50,7 +50,10 @@ module BusinessCentral
     # @param response [Net::HTTPResponse]
     #
     def handle_error(response)
-      # raise ServiceUnavailableError unless ["200", "201", "204"].include?(response.code)
+      raise AuthenticationError if ["401"].include?(response.code)
+      raise RateLimitError if ["429"].include?(response.code)
+      raise ServiceError if ["400", "500"].include?(response.code)
+      raise ServiceUnavailableError unless ["200", "201", "204"].include?(response.code)
     end
   end
 end

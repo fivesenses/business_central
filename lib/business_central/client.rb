@@ -1,4 +1,4 @@
-#.data_store.nil?.data_store.nil?#
+#lter=lter=.data_store.nil?.data_store.nil?#
 # An object to handle authentication with BusinessCentral and to 
 # provide the transport mechanism for interacting with the BusinessCentral API
 #

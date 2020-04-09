@@ -85,16 +85,18 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
     stub_post("customers").
       with(headers: stub_headers, body: new_customer).
       to_return(
-        status: 409,
+        status: 400,
         body: fixture("post_customer_409.json"))
 
-    customer = BusinessCentral::Customer.
-      new(bc_client).
-      create(new_customer)
+    assert_raise("ServiceError") do
+      customer = BusinessCentral::Customer.
+        new(bc_client).
+        create(new_customer)
 
-    assert_not_nil customer.error
-    assert_equal "Internal_EntityWithSameKeyExists", customer.error.code
-    assert_match(/Customer already exists/, customer.error.message)
+      assert_not_nil customer.error
+      assert_equal "Internal_EntityWithSameKeyExists", customer.error.code
+      assert_match(/Customer already exists/, customer.error.message)
+    end
   end
 
   def new_customer
