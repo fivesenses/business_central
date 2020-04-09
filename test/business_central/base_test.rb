@@ -13,6 +13,16 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
     assert_not_nil base.client
   end
 
+  test "should raise an AuthenticationError" do
+    stub_get("companies").
+      with(headers: stub_headers).
+      to_return(status: 401)
+
+    assert_raise(AuthenticationError) do
+      BusinessCentral::Company.new(bc_client).get
+    end
+  end
+
   test "should build a URL with only a single parameter" do
     base = BusinessCentral::Base.new(bc_client)
     # base.const_set(API_OBJECT, "foo")
@@ -29,7 +39,7 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
   test "should return a RateLimitError" do
     stub_get("companies").
       with(headers: stub_headers).
-      to_return(status: 209)
+      to_return(status: 429)
 
     assert_raise(RateLimitError) do
       BusinessCentral::Company.new(bc_client).get
