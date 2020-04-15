@@ -18,7 +18,7 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 401)
 
-    assert_raise(AuthenticationError) do
+    assert_raise(BusinessCentral::AuthenticationError) do
       BusinessCentral::Company.new(bc_client).get
     end
   end
@@ -41,7 +41,7 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 429)
 
-    assert_raise(RateLimitError) do
+    assert_raise(BusinessCentral::RateLimitError) do
       BusinessCentral::Company.new(bc_client).get
     end
   end
@@ -51,7 +51,7 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 500)
 
-    assert_raise(ServiceError) do
+    assert_raise(BusinessCentral::ServiceError) do
       BusinessCentral::Company.new(bc_client).get
     end
   end
@@ -61,7 +61,7 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
       with(headers: stub_headers).
       to_return(status: 404)
 
-    assert_raise(ServiceUnavailableError) do
+    assert_raise(BusinessCentral::ServiceUnavailableError) do
       BusinessCentral::Company.new(bc_client).get
     end
   end

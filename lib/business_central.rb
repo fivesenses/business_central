@@ -64,7 +64,7 @@ module BusinessCentral
   ENDPOINT_PRODUCTION = "https://api.businesscentral.dynamics.com"
 end
 
-AuthenticationError = Class.new(StandardError)
-ServiceUnavailableError = Class.new(StandardError)
-ServiceError = Class.new(StandardError)
-RateLimitError = Class.new(StandardError)
+BusinessCentral::AuthenticationError = Class.new(StandardError)
+BusinessCentral::ServiceUnavailableError = Class.new(StandardError)
+BusinessCentral::ServiceError = Class.new(StandardError)
+BusinessCentral::RateLimitError = Class.new(StandardError)
