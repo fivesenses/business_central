@@ -25,6 +25,8 @@ module BusinessCentral
       BusinessCentral::Response::ResponseHandler.
         new(@client.dataset(response)).
         compiled_data
+    rescue JsonError => e
+      raise BusinessCentral::JsonError.new(e.message, response)
     end
 
     # Use the BusinessCentral::URLBuilder to create the URL to query the API
@@ -50,10 +52,21 @@ module BusinessCentral
     # @param response [Net::HTTPResponse]
     #
     def handle_error(response)
-      raise BusinessCentral::AuthenticationError if ["401"].include?(response.code)
-      raise BusinessCentral::RateLimitError if ["429"].include?(response.code)
-      raise BusinessCentral::ServiceError if ["400", "500"].include?(response.code)
-      raise BusinessCentral::ServiceUnavailableError unless ["200", "201", "204"].include?(response.code)
+      if response.code == "401"
+        raise BusinessCentral::AuthenticationError.new("AuthenticationError", response)
+      end
+
+      if response.code == "429"
+        raise BusinessCentral::RateLimitError.new("Rate Limited", response)
+      end
+
+      if ["400", "500"].include?(response.code)
+        raise BusinessCentral::ServiceError.new("Service Error", response)
+      end
+
+      unless ["200", "201", "202", "203", "204"].include?(response.code)
+        raise BusinessCentral::ServiceUnavailableError.new("Unknown Error", response)
+      end
     end
   end
 end
