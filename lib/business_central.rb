@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 
+require 'business_central/errors'
 require 'business_central/api_methods'
 require 'business_central/base'
 require 'business_central/request_builder'
@@ -64,7 +65,3 @@ module BusinessCentral
   ENDPOINT_PRODUCTION = "https://api.businesscentral.dynamics.com"
 end
 
-BusinessCentral::AuthenticationError = Class.new(StandardError)
-BusinessCentral::ServiceUnavailableError = Class.new(StandardError)
-BusinessCentral::ServiceError = Class.new(StandardError)
-BusinessCentral::RateLimitError = Class.new(StandardError)
