@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-cobertura"
   spec.add_development_dependency "test-unit"
+  spec.add_development_dependency "solargraph-standardrb"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "mocha"
   spec.add_development_dependency "ci_reporter_test_unit"
