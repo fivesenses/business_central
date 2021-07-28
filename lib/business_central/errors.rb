@@ -8,22 +8,17 @@ module BusinessCentral
   end
 
   class AuthenticationError < BaseError
-
   end
 
   class RateLimitError < BaseError
-
   end
 
   class ServiceError < BaseError
-
   end
 
   class ServiceUnavailableError < BaseError
-
   end
 
   class JsonError < BaseError
-
   end
 end

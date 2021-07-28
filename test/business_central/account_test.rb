@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::AccountTest < Test::Unit::TestCase
   def test_initialize
@@ -7,18 +7,18 @@ class BusinessCentral::AccountTest < Test::Unit::TestCase
   end
 
   def test_get_accounts
-    stub_get("accounts").
-      with(headers: stub_headers).
-      to_return( status: 200, body: fixture("get_accounts_200.json"))
+    stub_get("/accounts")
+      .with(headers: stub_headers)
+      .to_return(status: 200, body: fixture("get_accounts_200.json"))
 
     accounts = BusinessCentral::Account.new(bc_client).get
     assert accounts.length > 0
   end
 
   def test_get_account
-    stub_get("accounts(1234)").
-      with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_account_200.json"))
+    stub_get("/accounts(1234)")
+      .with(headers: stub_headers)
+      .to_return(status: 200, body: fixture("get_account_200.json"))
 
     account = BusinessCentral::Account.new(bc_client).get("1234")
     assert_equal "Depreciation, Equipment", account.displayName

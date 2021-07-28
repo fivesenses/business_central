@@ -13,7 +13,7 @@ module BusinessCentral
     # @param client [BusinessCentral::Client]
     #
     def initialize(client)
-      @client = client.nil? ? BusinessCentral::Client.new() : client
+      @client = client.nil? ? BusinessCentral::Client.new : client
     end
 
     # Use a BusinessCentral::Response::ResponseHandler to proces the results
@@ -22,9 +22,9 @@ module BusinessCentral
     # @param response [Net::HTTPResponse]
     #
     def process(response)
-      BusinessCentral::Response::ResponseHandler.
-        new(@client.dataset(response)).
-        compiled_data
+      BusinessCentral::Response::ResponseHandler
+        .new(@client.dataset(response))
+        .compiled_data
     rescue JsonError => e
       raise BusinessCentral::JsonError.new(e.message, response)
     end
@@ -35,7 +35,7 @@ module BusinessCentral
     # @param child_id [String] any additional options
     #
     def build_url(parent_id, child_id = nil)
-      options = { child_path: api_object }
+      options = {child_path: api_object}
 
       if !child_id.nil?
         options[:child_id] = child_id

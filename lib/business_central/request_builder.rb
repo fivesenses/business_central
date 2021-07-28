@@ -1,6 +1,6 @@
-##
+# frozen_string_literal: true
+
 # An object to build the request object
-#
 
 class BusinessCentral::RequestBuilder
   attr_accessor :request
@@ -24,22 +24,31 @@ class BusinessCentral::RequestBuilder
   def build
     @request = request_object.new(uri)
     @request.content_type = "application/json"
-    @request.basic_auth(@client.api_username, @client.api_password)
+
+    # Use BASIC_AUTH if API_TOKEN not provided
+    if @client.api_token.present?
+      @request.add_field("Authorization", "Bearer #{@client.api_token}")
+    else
+      @request.basic_auth(@client.api_username, @client.api_password)
+    end
+
     add_etag
     add_data
   end
 
-  # If an etag is supplied, add it to the request in an ['If-Match'] header
+  # If an etag is supplied, add it to the request in an ["If-Match"] header
   #
   def add_etag
     return if @etag.nil?
-    @request['If-Match'] = @etag
+
+    @request["If-Match"] = @etag
   end
 
   # If form data is supplied, add it to the request body as JSON
   #
   def add_data
     return if @data.nil?
+
     @request.body = JSON.generate(@data)
   end
 

@@ -1,9 +1,9 @@
-##
-# Provides an interface between the object methods and the API
+# frozen_string_literal: true
+
 #
+# Provides an interface between the object methods and the API
 module BusinessCentral
   module ApiMethods
-
     # The method_missing method is used to determine if a called method exists
     # in the defined constant for each local object - SUPPORTED_METHODS. This
     # ensures that only supported operations can be called.
@@ -14,10 +14,14 @@ module BusinessCentral
     #
     def method_missing(method_name, *args, &block)
       if supported_method?(method_name.to_sym)
-        self.send(method_name.to_sym, args)
+        send(method_name.to_sym, args)
       else
         "#{method_name} is not supported"
       end
+    end
+
+    def respond_to_missing?(method_name, include_private = false)
+      method_name.to_s.start_with?("user_") || super
     end
 
     # Determines if the GET operation is for all remote objects, a single
@@ -34,7 +38,7 @@ module BusinessCentral
     # When more than one parameter is supplied, the GET will be for the single
     # object, and then for the supplied optional parameters
     #
-    # An example of the options is 
+    # An example of the options is
     #   .get("1234", "$extended=customerFinancialDetails")
     #
     # @param args [Array]]
@@ -74,7 +78,7 @@ module BusinessCentral
 
       if results.is_a?(Array)
         return results if child_id.nil? || results.length > 1
-        return results.first
+        results.first
       end
     end
 

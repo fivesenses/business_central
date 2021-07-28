@@ -1,11 +1,12 @@
-#lter=lter=.data_store.nil?.data_store.nil?#
-# An object to handle authentication with BusinessCentral and to 
+# frozen_string_literal: true
+
+# An object to handle authentication with BusinessCentral and to
 # provide the transport mechanism for interacting with the BusinessCentral API
-#
+
 module BusinessCentral
   class Client
     attr_reader :api_username, :api_password, :api_tenant, :api_company_id,
-      :api_host, :api_version, :api_path
+      :api_host, :api_version, :api_path, :api_token, :client_id, :client_secret
 
     # Creates an instance of the BusinessCentral::Client.
     #
@@ -22,11 +23,15 @@ module BusinessCentral
     def initialize(opts = {})
       @api_version = opts[:api_version] ||= BusinessCentral::API_VERSION
       @api_path = opts[:api_path] ||= BusinessCentral::API_PATH
-      @api_tenant = opts[:api_tenant] ||= ENV['BC_TENANT']
-      @api_username = opts[:api_username] ||= ENV['BC_USERNAME']
-      @api_password = opts[:api_password] ||= ENV['BC_PASSWORD']
-      @api_company_id = opts[:api_company_id] ||= ENV['BC_COMPANY_ID']
-      @api_host = opts[:api_host] ||= ENV['BC_HOST']
+      @api_host = opts[:api_host] ||= BusinessCentral::ENDPOINT_PRODUCTION
+      @client_id = opts[:client_id] ||= ENV.fetch("BC_CLIENT_ID", nil)
+      @client_secret = opts[:client_secret] ||= ENV.fetch("BC_CLIENT_SECRET", nil)
+      @api_token = opts[:api_token] ||= ENV.fetch("BC_API_TOKEN", nil)
+      @api_tenant = opts[:api_tenant] ||= ENV.fetch("BC_TENANT", "tenant")
+      @api_username = opts[:api_username] ||= ENV.fetch("BC_USERNAME", "username")
+      @api_password = opts[:api_password] ||= ENV.fetch("BC_PASSWORD", "password")
+      @api_company_id = opts[:api_company_id] ||= ENV.fetch("BC_COMPANY_ID", nil)
+      @api_environment = opts[:api_environment] ||= ENV.fetch("BC_ENVIRONMENT", "sandbox")
     end
 
     # Returns the URL used for interacting with the API
@@ -34,11 +39,13 @@ module BusinessCentral
     # @returns [String]
     #
     def base_url
-      url = "#{@api_host}#{@api_version}/#{@api_tenant}#{@api_path}"
-      unless @api_company_id.nil?
-        url += "/companies(#{@api_company_id})"
+      url = if @api_token.present?
+        "#{@api_host}#{@api_version}/#{@api_tenant}/#{@api_environment}#{@api_path}"
+      else
+        "#{@api_host}#{@api_version}/#{@api_tenant}#{@api_path}"
       end
-      url
+
+      @api_company_id.nil? ? url : "#{url}/companies(#{@api_company_id})"
     end
 
     # Performs a GET operation
@@ -47,7 +54,8 @@ module BusinessCentral
     # @returns Net::HttpResponse
     #
     def get(url)
-      request = build_request({ verb: "Get", url: url })
+      request = build_request({verb: "Get", url: url})
+      puts request.inspect
       perform_request(request)
     end
 
@@ -58,7 +66,7 @@ module BusinessCentral
     # @returns Net::HttpResponse
     #
     def post(url, data)
-      request = build_request({ verb: "Post", url: url, data: data })
+      request = build_request({verb: "Post", url: url, data: data})
       perform_request(request)
     end
 
@@ -70,7 +78,7 @@ module BusinessCentral
     # @returns Net::HttpResponse
     #
     def patch(url, etag, data)
-      request = build_request({ verb: "Patch", url: url, data: data, etag: etag })
+      request = build_request({verb: "Patch", url: url, data: data, etag: etag})
       perform_request(request)
     end
 
@@ -81,7 +89,7 @@ module BusinessCentral
     # @returns Net::HttpResponse
     #
     def delete(url, etag)
-      request = build_request({ verb: "Delete", url: url, etag: etag })
+      request = build_request({verb: "Delete", url: url, etag: etag})
       perform_request(request)
     end
 
@@ -92,8 +100,8 @@ module BusinessCentral
       else
         json
       end
-    # rescue
-    #   {}
+      # rescue
+      #   {}
     end
 
     protected
