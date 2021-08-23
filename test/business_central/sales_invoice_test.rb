@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::SalesInvoiceTest < Test::Unit::TestCase
   test "should initialize the object" do
@@ -7,18 +7,24 @@ class BusinessCentral::SalesInvoiceTest < Test::Unit::TestCase
   end
 
   test "should return a salesInvoice" do
-    stub_get("salesInvoices(1234)").
-      with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_salesInvoice_200.json"))
+    stub_get("/salesInvoices(1234)")
+      .with(headers: stub_headers)
+      .to_return(
+        status: 200,
+        body: fixture("get_salesInvoice_200.json")
+      )
 
     invoice = BusinessCentral::SalesInvoice.new(bc_client).get("1234")
     assert_equal "Alpine Ski House", invoice.customerName
   end
 
   test "should create a salesInvoice" do
-    stub_post("salesInvoices").
-      with(headers: stub_headers).
-      to_return(status: 200, body: fixture("post_salesInvoice_200.json"))
+    stub_post("/salesInvoices")
+      .with(headers: stub_headers)
+      .to_return(
+        status: 200,
+        body: fixture("post_salesInvoice_200.json")
+      )
 
     invoice = BusinessCentral::SalesInvoice.new(bc_client).create(new_invoice)
 

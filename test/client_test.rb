@@ -8,8 +8,6 @@ class BusinessCentral::ClientTest < Test::Unit::TestCase
 
     assert_not_nil client
     assert_equal "987654321", client.api_tenant
-    assert_equal "foo", client.api_username
-    assert_equal "bar", client.api_password
   end
 
   def test_base_url

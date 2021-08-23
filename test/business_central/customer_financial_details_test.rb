@@ -8,7 +8,7 @@ class BusinessCentral::CustomerFinancialDetailsTest < Test::Unit::TestCase
 
   test "should retrieve all customerFinancialDetails" do
     # stub_get("?expand=customerFinancialDetail&schemaVersion=2.0")
-    stub_get("/customerFinancialDetails?schemaVersion=2.0")
+    stub_get("/customerFinancialDetails")
       .with(headers: stub_headers)
       .to_return(
         status: 200,

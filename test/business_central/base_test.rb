@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::BaseTest < Test::Unit::TestCase
   def setup
@@ -14,9 +14,9 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
   end
 
   test "should raise an AuthenticationError" do
-    stub_get("companies").
-      with(headers: stub_headers).
-      to_return(status: 401)
+    stub_get("/companies")
+      .with(headers: stub_headers)
+      .to_return(status: 401)
 
     assert_raise(BusinessCentral::AuthenticationError) do
       BusinessCentral::Company.new(bc_client).get
@@ -25,9 +25,9 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
 
   test "should build a URL with only a single parameter" do
     base = BusinessCentral::Base.new(bc_client)
-    # base.const_set(API_OBJECT, "foo")
+
     url = base.build_url("1234")
-    assert_equal '/foo(1234)/bar', url
+    assert_equal "/foo(1234)/bar", url
   end
 
   test "should build a URL with multiple parameters" do
@@ -37,9 +37,9 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
   end
 
   test "should return a RateLimitError" do
-    stub_get("companies").
-      with(headers: stub_headers).
-      to_return(status: 429)
+    stub_get("/companies")
+      .with(headers: stub_headers)
+      .to_return(status: 429)
 
     assert_raise(BusinessCentral::RateLimitError) do
       BusinessCentral::Company.new(bc_client).get
@@ -47,9 +47,9 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
   end
 
   test "should return a ServiceError" do
-    stub_get("companies").
-      with(headers: stub_headers).
-      to_return(status: 500)
+    stub_get("/companies")
+      .with(headers: stub_headers)
+      .to_return(status: 500)
 
     assert_raise(BusinessCentral::ServiceError) do
       BusinessCentral::Company.new(bc_client).get
@@ -57,9 +57,9 @@ class BusinessCentral::BaseTest < Test::Unit::TestCase
   end
 
   test "should return a ServiceUnavailableError" do
-    stub_get("companies").
-      with(headers: stub_headers).
-      to_return(status: 404)
+    stub_get("/companies")
+      .with(headers: stub_headers)
+      .to_return(status: 404)
 
     assert_raise(BusinessCentral::ServiceUnavailableError) do
       BusinessCentral::Company.new(bc_client).get

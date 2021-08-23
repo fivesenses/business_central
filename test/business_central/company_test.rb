@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::CompanyTest < Test::Unit::TestCase
   def test_initialize
@@ -7,18 +7,24 @@ class BusinessCentral::CompanyTest < Test::Unit::TestCase
   end
 
   def test_company_success
-    stub_get("companies(1234)").
-      with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_company_200.json"))
+    stub_get("/companies(1234)")
+      .with(headers: stub_headers)
+      .to_return(
+        status: 200,
+        body: fixture("get_company_200.json")
+      )
 
     company = BusinessCentral::Company.new(bc_client).get("1234")
     assert_equal "CRONUS AU", company.name
   end
 
   def test_companies_success
-    stub_get("companies").
-      with(headers: stub_headers).
-      to_return(status: 200, body: fixture("get_companies_200.json"))
+    stub_get("/companies")
+      .with(headers: stub_headers)
+      .to_return(
+        status: 200,
+        body: fixture("get_companies_200.json")
+      )
 
     companies = BusinessCentral::Company.new(bc_client).get
     assert_equal 1, companies.length

@@ -39,10 +39,10 @@ class Test::Unit::TestCase; end
 def bc_client
   BusinessCentral::Client.new({
     api_tenant: "987654321",
-    api_username: "foo",
-    api_password: "bar",
     api_host: "https://wiise.api.bc.dynamics.com",
     api_company_id: "123456789",
+    api_verison: "/v2.0",
+    api_path: "/api/v2.0",
     test_mode: true
   })
 end

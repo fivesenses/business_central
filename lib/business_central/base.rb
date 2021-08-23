@@ -41,7 +41,9 @@ module BusinessCentral
         options[:child_id] = child_id
       end
 
-      BusinessCentral::URLBuilder.new(api_object_parent, parent_id, options).url
+      BusinessCentral::URLBuilder
+        .new(api_object_parent, parent_id, options)
+        .url
     end
 
     private

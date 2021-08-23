@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::ShipmentMethodTest < Test::Unit::TestCase
   def test_initialize
@@ -7,13 +7,15 @@ class BusinessCentral::ShipmentMethodTest < Test::Unit::TestCase
   end
 
   test "should return a list of shipmentMethods" do
-    stub_get("shipmentMethods").
-      with(headers: stub_headers).
-      to_return(status: 200,
-                body: fixture("get_shipmentMethods_200.json"))
+    stub_get("/shipmentMethods")
+      .with(headers: stub_headers)
+      .to_return(
+        status: 200,
+        body: fixture("get_shipmentMethods_200.json")
+      )
 
-    shipmentMethods = BusinessCentral::ShipmentMethod.new(bc_client).get()
-    assert shipmentMethods.length > 1
-    assert_equal "DELIVERY", shipmentMethods.first.displayName
+    shipment_methods = BusinessCentral::ShipmentMethod.new(bc_client).get()
+    assert shipment_methods.length > 1
+    assert_equal "DELIVERY", shipment_methods.first.displayName
   end
 end
