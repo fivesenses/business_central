@@ -1,3 +1,3 @@
 module BusinessCentral
-  VERSION = "0.9.11"
+  VERSION = "0.9.13"
 end

@@ -139,8 +139,6 @@ module BusinessCentral
     #
     def find_collection
       response = @client.get("/#{api_object}")
-      puts "#### #{@client.base_url}"
-      puts "#### #{response.inspect}"
       handle_error(response)
       process(response)
     end
