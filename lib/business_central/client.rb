@@ -55,7 +55,7 @@ module BusinessCentral
     #
     def get(url)
       request = build_request({verb: "Get", url: url})
-      Rails.logger.debug "### Wiise URL: #{request.uri}"
+      puts "### Wiise URL: #{request.uri}"
       perform_request(request)
     end
 
