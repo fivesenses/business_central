@@ -32,6 +32,7 @@ module BusinessCentral
       @api_password = opts[:api_password] ||= ENV.fetch("BC_PASSWORD", "password")
       @api_company_id = opts[:api_company_id] ||= ENV.fetch("BC_COMPANY_ID", nil)
       @api_environment = opts[:api_environment] ||= ENV.fetch("BC_ENVIRONMENT", "sandbox2")
+      @debug = opts[:debug] ||= false
     end
 
     # Returns the URL used for interacting with the API
@@ -55,6 +56,7 @@ module BusinessCentral
     #
     def get(url)
       request = build_request({verb: "Get", url: url})
+      print_debug(request) if @debug
       perform_request(request)
     end
 
@@ -66,6 +68,7 @@ module BusinessCentral
     #
     def post(url, data)
       request = build_request({verb: "Post", url: url, data: data})
+      print_debug(request) if @debug
       perform_request(request)
     end
 
@@ -78,6 +81,7 @@ module BusinessCentral
     #
     def patch(url, etag, data)
       request = build_request({verb: "Patch", url: url, data: data, etag: etag})
+      print_debug(request) if @debug
       perform_request(request)
     end
 
@@ -89,6 +93,7 @@ module BusinessCentral
     #
     def delete(url, etag)
       request = build_request({verb: "Delete", url: url, etag: etag})
+      print_debug(request) if @debug
       perform_request(request)
     end
 
@@ -130,6 +135,16 @@ module BusinessCentral
       Net::HTTP.start(request.uri.hostname, request.uri.port, use_ssl: true) do |http|
         http.request(request)
       end
+    end
+
+    def print_debug(request)
+      puts "### WIISE REQUEST ###"
+      puts "# URI #{request.uri}"
+      puts "# BODY #{request.body}"
+      request.each_header do |h|
+        puts h
+      end
+      puts "###"
     end
   end
 end
