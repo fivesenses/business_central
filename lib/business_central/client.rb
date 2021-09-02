@@ -31,7 +31,7 @@ module BusinessCentral
       @api_username = opts[:api_username] ||= ENV.fetch("BC_USERNAME", "username")
       @api_password = opts[:api_password] ||= ENV.fetch("BC_PASSWORD", "password")
       @api_company_id = opts[:api_company_id] ||= ENV.fetch("BC_COMPANY_ID", nil)
-      @api_environment = opts[:api_environment] ||= ENV.fetch("BC_ENVIRONMENT", "sandbox")
+      @api_environment = opts[:api_environment] ||= ENV.fetch("BC_ENVIRONMENT", "sandbox2")
     end
 
     # Returns the URL used for interacting with the API
@@ -55,7 +55,6 @@ module BusinessCentral
     #
     def get(url)
       request = build_request({verb: "Get", url: url})
-      puts "### Wiise URL: #{request.uri}"
       perform_request(request)
     end
 

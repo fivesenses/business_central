@@ -24,6 +24,7 @@ class BusinessCentral::ClientTest < Test::Unit::TestCase
       test_mode: true,
       api_company_id: "123456789",
       api_version: "/v2.0",
+      api_environment: "sandbox2",
       api_path: "/api/v2.0"
     })
 

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::CustomerPaymentTest < Test::Unit::TestCase
   def test_initialize

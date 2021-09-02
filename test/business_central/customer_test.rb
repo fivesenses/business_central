@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class BusinessCentral::CustomerTest < Test::Unit::TestCase
   def test_initialize
@@ -31,16 +31,16 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
   end
 
   test "should return the extra details for a customer" do
-    stub_get("/customers(1234)?$expand=customerFinancialDetails")
+    stub_get("/customers(1234)?$expand=customerFinancialDetail")
       .with(headers: stub_headers)
       .to_return(
         status: 200,
         body: fixture("get_customer_expanded_200.json")
       )
 
-    customer = BusinessCentral::Customer.new(bc_client).get("1234", "$expand=customerFinancialDetails")
+    customer = BusinessCentral::Customer.new(bc_client).get("1234", "$expand=customerFinancialDetail")
     assert_equal "School of Fine Art", customer.displayName
-    assert_equal 95193, customer.customerFinancialDetails.first.balance
+    assert_equal 95193, customer.customerFinancialDetail.balance
   end
 
   def test_customer_filter
@@ -150,7 +150,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
       }",
       "blocked": " ",
       "overdueAmount": 0,
-      "totalSalesExcludingTax": 0,
+      "totalSalesExcludingTax": 0
     }
   end
 end
