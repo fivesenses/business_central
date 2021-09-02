@@ -11,7 +11,7 @@ class BusinessCentral::RequestBuilderTest < Test::Unit::TestCase
     )
     assert_not_nil @builder
     assert_equal "Get", @builder.verb
-    assert_equal "/customers?schemaversion=2.0", @builder.url
+    assert_equal "/customers?$schemaversion=2.0", @builder.url
   end
 
   def test_request_object
@@ -33,7 +33,7 @@ class BusinessCentral::RequestBuilderTest < Test::Unit::TestCase
         url: "/customers"
       }
     )
-    assert_equal URI("#{bc_client.base_url}/customers?schemaversion=2.0"), @builder.uri
+    assert_equal URI("#{bc_client.base_url}/customers?$schemaversion=2.0"), @builder.uri
   end
 
   def test_build

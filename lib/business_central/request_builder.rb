@@ -65,9 +65,9 @@ class BusinessCentral::RequestBuilder
   #
   def uri
     @url += if @url.index("?").nil?
-      "?schemaversion=2.0"
+      "?$schemaversion=2.0"
     elsif @url.index("schemaversion").nil?
-      "&schemaversion=2.0"
+      "&$schemaversion=2.0"
     else
       ""
     end

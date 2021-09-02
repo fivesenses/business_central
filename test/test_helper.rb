@@ -74,9 +74,9 @@ end
 
 def api_url(url)
   url += if url.index("?").nil?
-           "?schemaversion=2.0"
+           "?$schemaversion=2.0"
          elsif url.index("schemaversion").nil?
-           "&schemaversion=2.0"
+           "&$schemaversion=2.0"
          end
   "https://wiise.api.bc.dynamics.com/v2.0/987654321/sandbox2/api/v2.0/companies(123456789)#{url}"
 end
