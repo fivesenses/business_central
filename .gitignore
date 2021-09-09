@@ -35,3 +35,4 @@ Gemfile.lock
 
 
 tmux-client-*.log
+bc.rb

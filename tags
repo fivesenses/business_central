@@ -1,0 +1,322 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/2ebf5b1/
+Account	lib/business_central/account.rb	/^  class Account < BusinessCentral::Base$/;"	c	module:BusinessCentral
+AccountTest	test/business_central/account_test.rb	/^class BusinessCentral::AccountTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+AgedAccountsPayable	lib/business_central/aged_accounts_payable.rb	/^  class AgedAccountsPayable < BusinessCentral::Base$/;"	c	module:BusinessCentral
+AgedAccountsPayableTest	test/business_central/aged_accounts_payable_test.rb	/^class BusinessCentral::AgedAccountsPayableTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+AgedAccountsReceivable	lib/business_central/aged_accounts_receivable.rb	/^  class AgedAccountsReceivable < BusinessCentral::Base$/;"	c	module:BusinessCentral
+AgedAccountsReceivableTest	test/business_central/aged_accounts_receivable_test.rb	/^class BusinessCentral::AgedAccountsReceivableTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+ApiMethods	lib/business_central/api_methods.rb	/^  module ApiMethods$/;"	m	module:BusinessCentral
+AuthenticationError	lib/business_central/errors.rb	/^  class AuthenticationError < BaseError$/;"	c	module:BusinessCentral
+BalanceSheet	lib/business_central/balance_sheet.rb	/^  class BalanceSheet < BusinessCentral::Base$/;"	c	module:BusinessCentral
+Base	lib/business_central/base.rb	/^  class Base$/;"	c	module:BusinessCentral
+BaseError	lib/business_central/errors.rb	/^  class BaseError < StandardError$/;"	c	module:BusinessCentral
+BaseTest	test/business_central/base_test.rb	/^class BusinessCentral::BaseTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+BusinessCentral	lib/business_central.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/account.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/aged_accounts_payable.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/aged_accounts_receivable.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/api_methods.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/balance_sheet.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/base.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/cash_flow_statement.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/client.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/company.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/company_information.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/countries_region.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/currency.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/customer.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/customer_financial_details.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/customer_payment.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/customer_payments_journal.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/customer_sales.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/dimension.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/dimension_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/employee.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/errors.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/general_ledger_entry.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/income_statement.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/irs_1099_code.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/item.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/item_category.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/journal.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/journal_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/payment_method.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/payment_term.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/picture.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/purchase_invoice.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/purchase_invoice_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/retained_earnings_statement.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_credit_memo.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_credit_memo_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_invoice.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_invoice_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_order.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_order_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_quote.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/sales_quote_line.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/shipment_method.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/subscription.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/tax_area.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/tax_group.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/trial_balance.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/unit_of_measure.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/url_builder.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/vendor.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/vendor_purchase.rb	/^module BusinessCentral$/;"	m
+BusinessCentral	lib/business_central/version.rb	/^module BusinessCentral$/;"	m
+CashFlowStatement	lib/business_central/cash_flow_statement.rb	/^  class CashFlowStatement < BusinessCentral::Base$/;"	c	module:BusinessCentral
+Client	lib/business_central/client.rb	/^  class Client$/;"	c	module:BusinessCentral
+ClientTest	test/client_test.rb	/^class BusinessCentral::ClientTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Company	lib/business_central/company.rb	/^  class Company < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CompanyInformation	lib/business_central/company_information.rb	/^  class CompanyInformation < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CompanyInformationTest	test/business_central/company_information_test.rb	/^class BusinessCentral::CompanyInformationTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CompanyTest	test/business_central/company_test.rb	/^class BusinessCentral::CompanyTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CountriesRegion	lib/business_central/countries_region.rb	/^  class CountriesRegion < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CountriesRegionTest	test/business_central/countries_region_test.rb	/^class BusinessCentral::CountriesRegionTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Currency	lib/business_central/currency.rb	/^  class Currency < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CurrencyTest	test/business_central/currency_test.rb	/^class BusinessCentral::CurrencyTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Customer	lib/business_central/customer.rb	/^  class Customer < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CustomerFinancialDetails	lib/business_central/customer_financial_details.rb	/^  class CustomerFinancialDetails < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CustomerFinancialDetailsTest	test/business_central/customer_financial_details_test.rb	/^class BusinessCentral::CustomerFinancialDetailsTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CustomerPayment	lib/business_central/customer_payment.rb	/^  class CustomerPayment < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CustomerPaymentTest	test/business_central/customer_payment_test.rb	/^class BusinessCentral::CustomerPaymentTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CustomerPaymentsJournal	lib/business_central/customer_payments_journal.rb	/^  class CustomerPaymentsJournal < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CustomerPaymentsJournalTest	test/business_central/customer_payments_journal_test.rb	/^class BusinessCentral::CustomerPaymentsJournalTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CustomerSales	lib/business_central/customer_sales.rb	/^  class CustomerSales < BusinessCentral::Base$/;"	c	module:BusinessCentral
+CustomerSalesTest	test/business_central/customer_sales_test.rb	/^class BusinessCentral::CustomerSalesTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+CustomerTest	test/business_central/customer_test.rb	/^class BusinessCentral::CustomerTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Dimension	lib/business_central/dimension.rb	/^  class Dimension < BusinessCentral::Base$/;"	c	module:BusinessCentral
+DimensionLine	lib/business_central/dimension_line.rb	/^  class DimensionLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+DimensionLineTest	test/business_central/dimension_line_test.rb	/^class BusinessCentral::DimensionLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+DimensionTest	test/business_central/dimension_test.rb	/^class BusinessCentral::DimensionTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Employee	lib/business_central/employee.rb	/^  class Employee < BusinessCentral::Base$/;"	c	module:BusinessCentral
+EmployeeTest	test/business_central/employee_test.rb	/^class BusinessCentral::EmployeeTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+GeneralLedgerEntry	lib/business_central/general_ledger_entry.rb	/^  class GeneralLedgerEntry < BusinessCentral::Base$/;"	c	module:BusinessCentral
+GeneralLedgerEntryTest	test/business_central/general_ledger_entry_test.rb	/^class BusinessCentral::GeneralLedgerEntryTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+IncomeStatement	lib/business_central/income_statement.rb	/^  class IncomeStatement < BusinessCentral::Base$/;"	c	module:BusinessCentral
+IncomeStatementTest	test/business_central/income_statement_test.rb	/^class BusinessCentral::IncomeStatementTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Installation	README.md	/^## Installation$/;"	s
+Irs1099Code	lib/business_central/irs_1099_code.rb	/^  class Irs1099Code < BusinessCentral::Base$/;"	c	module:BusinessCentral
+Irs1099CodeTest	test/business_central/irs_1099_code_test.rb	/^class BusinessCentral::Irs1099CodeTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Item	lib/business_central/item.rb	/^  class Item < BusinessCentral::Base$/;"	c	module:BusinessCentral
+ItemCategory	lib/business_central/item_category.rb	/^  class ItemCategory < BusinessCentral::Base$/;"	c	module:BusinessCentral
+ItemCategoryTest	test/business_central/item_category_test.rb	/^class BusinessCentral::ItemCategoryTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+ItemTest	test/business_central/item_test.rb	/^class BusinessCentral::ItemTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Journal	lib/business_central/journal.rb	/^  class Journal < BusinessCentral::Base$/;"	c	module:BusinessCentral
+JournalLine	lib/business_central/journal_line.rb	/^  class JournalLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+JournalLineTest	test/business_central/journal_line_test.rb	/^class BusinessCentral::JournalLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+JournalTest	test/business_central/journal_test.rb	/^class BusinessCentral::JournalTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+JsonError	lib/business_central/errors.rb	/^  class JsonError < BaseError$/;"	c	module:BusinessCentral
+PaymentMethod	lib/business_central/payment_method.rb	/^  class PaymentMethod < BusinessCentral::Base$/;"	c	module:BusinessCentral
+PaymentMethodTest	test/business_central/payment_method_test.rb	/^class BusinessCentral::PaymentMethodTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+PaymentTerm	lib/business_central/payment_term.rb	/^  class PaymentTerm < BusinessCentral::Base$/;"	c	module:BusinessCentral
+PaymentTermTest	test/business_central/payment_term_test.rb	/^class BusinessCentral::PaymentTermTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Picture	lib/business_central/picture.rb	/^  class Picture < BusinessCentral::Base$/;"	c	module:BusinessCentral
+PictureTest	test/business_central/picture_test.rb	/^class BusinessCentral::PictureTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+PurchaseInvoice	lib/business_central/purchase_invoice.rb	/^  class PurchaseInvoice < BusinessCentral::Base$/;"	c	module:BusinessCentral
+PurchaseInvoiceLine	lib/business_central/purchase_invoice_line.rb	/^  class PurchaseInvoiceLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+PurchaseInvoiceLineTest	test/business_central/purchase_invoice_line_test.rb	/^class BusinessCentral::PurchaseInvoiceLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+PurchaseInvoiceTest	test/business_central/purchase_invoice_test.rb	/^class BusinessCentral::PurchaseInvoiceTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+RateLimitError	lib/business_central/errors.rb	/^  class RateLimitError < BaseError$/;"	c	module:BusinessCentral
+RequestBuilder	lib/business_central/request_builder.rb	/^class BusinessCentral::RequestBuilder$/;"	c	module:BusinessCentral
+RequestBuilderTest	test/business_central/request_builder_test.rb	/^class BusinessCentral::RequestBuilderTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Response	lib/business_central/response/response_handler.rb	/^module BusinessCentral::Response$/;"	m	module:BusinessCentral
+ResponseHandler	lib/business_central/response/response_handler.rb	/^  class ResponseHandler$/;"	c	module:Response
+ResponseHandlerTest	test/business_central/response/response_handler_test.rb	/^class BusinessCentral::Response::ResponseHandlerTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral.Response
+RetainedEarningsStatement	lib/business_central/retained_earnings_statement.rb	/^  class RetainedEarningsStatement < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesCreditMemo	lib/business_central/sales_credit_memo.rb	/^  class SalesCreditMemo < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesCreditMemoLine	lib/business_central/sales_credit_memo_line.rb	/^  class SalesCreditMemoLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesCreditMemoLineTest	test/business_central/sales_credit_memo_line_test.rb	/^class BusinessCentral::SalesCreditMemoLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesCreditMemoTest	test/business_central/sales_credit_memo_test.rb	/^class BusinessCentral::SalesCreditMemoTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesInvoice	lib/business_central/sales_invoice.rb	/^  class SalesInvoice < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesInvoiceLine	lib/business_central/sales_invoice_line.rb	/^  class SalesInvoiceLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesInvoiceLineTest	test/business_central/sales_invoice_line_test.rb	/^class BusinessCentral::SalesInvoiceLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesInvoiceTest	test/business_central/sales_invoice_test.rb	/^class BusinessCentral::SalesInvoiceTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesOrder	lib/business_central/sales_order.rb	/^  class SalesOrder < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesOrderLine	lib/business_central/sales_order_line.rb	/^  class SalesOrderLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesOrderLineTest	test/business_central/sales_order_line_test.rb	/^class BusinessCentral::SalesOrderLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesOrderTest	test/business_central/sales_order_test.rb	/^class BusinessCentral::SalesOrderTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesQuote	lib/business_central/sales_quote.rb	/^  class SalesQuote < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesQuoteLine	lib/business_central/sales_quote_line.rb	/^  class SalesQuoteLine < BusinessCentral::Base$/;"	c	module:BusinessCentral
+SalesQuoteLineTest	test/business_central/sales_quote_line_test.rb	/^class BusinessCentral::SalesQuoteLineTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+SalesQuoteTest	test/business_central/sales_quote_test.rb	/^class BusinessCentral::SalesQuoteTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+ServiceError	lib/business_central/errors.rb	/^  class ServiceError < BaseError$/;"	c	module:BusinessCentral
+ServiceUnavailableError	lib/business_central/errors.rb	/^  class ServiceUnavailableError < BaseError$/;"	c	module:BusinessCentral
+ShipmentMethod	lib/business_central/shipment_method.rb	/^  class ShipmentMethod < BusinessCentral::Base$/;"	c	module:BusinessCentral
+ShipmentMethodTest	test/business_central/shipment_method_test.rb	/^class BusinessCentral::ShipmentMethodTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Subscription	lib/business_central/subscription.rb	/^  class Subscription < BusinessCentral::Base$/;"	c	module:BusinessCentral
+TaxArea	lib/business_central/tax_area.rb	/^  class TaxArea < BusinessCentral::Base$/;"	c	module:BusinessCentral
+TaxAreaTest	test/business_central/tax_area_test.rb	/^class BusinessCentral::TaxAreaTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+TaxGroup	lib/business_central/tax_group.rb	/^  class TaxGroup < BusinessCentral::Base$/;"	c	module:BusinessCentral
+TaxGroupTest	test/business_central/tax_group_test.rb	/^class BusinessCentral::TaxGroupTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+TestCase	test/test_helper.rb	/^class Test::Unit::TestCase; end$/;"	c	module:Test.Unit
+TrialBalance	lib/business_central/trial_balance.rb	/^  class TrialBalance < BusinessCentral::Base$/;"	c	module:BusinessCentral
+TrialBalanceTest	test/business_central/trial_balance_test.rb	/^class BusinessCentral::TrialBalanceTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+URLBuilder	lib/business_central/url_builder.rb	/^  class URLBuilder$/;"	c	module:BusinessCentral
+URLBuilderTest	test/business_central/url_builder_test.rb	/^class BusinessCentral::URLBuilderTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+UnitOfMeasure	lib/business_central/unit_of_measure.rb	/^  class UnitOfMeasure < BusinessCentral::Base$/;"	c	module:BusinessCentral
+UnitOfMeasureTest	test/business_central/unit_of_measure_test.rb	/^class BusinessCentral::UnitOfMeasureTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+Usage	README.md	/^## Usage$/;"	s
+Vendor	lib/business_central/vendor.rb	/^  class Vendor < BusinessCentral::Base$/;"	c	module:BusinessCentral
+VendorPurchase	lib/business_central/vendor_purchase.rb	/^  class VendorPurchase < BusinessCentral::Base$/;"	c	module:BusinessCentral
+VendorPurchaseTest	test/business_central/vendor_purchase_test.rb	/^class BusinessCentral::VendorPurchaseTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+VendorTest	test/business_central/vendor_test.rb	/^class BusinessCentral::VendorTest < Test::Unit::TestCase$/;"	c	module:BusinessCentral
+add_data	lib/business_central/request_builder.rb	/^  def add_data$/;"	f	class:RequestBuilder
+add_etag	lib/business_central/request_builder.rb	/^  def add_etag$/;"	f	class:RequestBuilder
+api_object	lib/business_central/api_methods.rb	/^    def api_object$/;"	f	module:BusinessCentral.ApiMethods
+api_object_parent	lib/business_central/api_methods.rb	/^    def api_object_parent$/;"	f	module:BusinessCentral.ApiMethods
+api_url	test/test_helper.rb	/^def api_url(url)$/;"	f
+base_url	lib/business_central/client.rb	/^    def base_url$/;"	f	class:BusinessCentral.Client
+bc_client	test/test_helper.rb	/^def bc_client$/;"	f
+build	lib/business_central/request_builder.rb	/^  def build$/;"	f	class:RequestBuilder
+build	lib/business_central/url_builder.rb	/^    def build$/;"	f	class:BusinessCentral.URLBuilder
+build_request	lib/business_central/client.rb	/^    def build_request(opts)$/;"	f	class:BusinessCentral.Client
+build_request_object	lib/business_central/subscription.rb	/^    def build_request_object$/;"	f	class:BusinessCentral.Subscription
+build_url	lib/business_central/base.rb	/^    def build_url(parent_id, child_id = nil)$/;"	f	class:BusinessCentral.Base
+business-central	README.md	/^# business-central$/;"	c
+create	lib/business_central/api_methods.rb	/^    def create(*args)$/;"	f	module:BusinessCentral.ApiMethods
+create	lib/business_central/purchase_invoice_line.rb	/^    def create(purchase_invoice_id, data)$/;"	f	class:BusinessCentral.PurchaseInvoiceLine
+create	lib/business_central/sales_invoice_line.rb	/^    def create(sales_invoice_id, data)$/;"	f	class:BusinessCentral.SalesInvoiceLine
+create	lib/business_central/subscription.rb	/^    def create$/;"	f	class:BusinessCentral.Subscription
+dataset	lib/business_central/client.rb	/^    def dataset(response)$/;"	f	class:BusinessCentral.Client
+delete	lib/business_central/api_methods.rb	/^    def delete(*args)$/;"	f	module:BusinessCentral.ApiMethods
+delete	lib/business_central/client.rb	/^    def delete(url, etag)$/;"	f	class:BusinessCentral.Client
+delete	lib/business_central/purchase_invoice_line.rb	/^    def delete(purchase_invoice_id, purchase_invoice_line_id, etag)$/;"	f	class:BusinessCentral.PurchaseInvoiceLine
+destroy	lib/business_central/api_methods.rb	/^    def destroy(id, etag)$/;"	f	module:BusinessCentral.ApiMethods
+find_by_id	lib/business_central/api_methods.rb	/^    def find_by_id(id)$/;"	f	module:BusinessCentral.ApiMethods
+find_by_id_with_options	lib/business_central/api_methods.rb	/^    def find_by_id_with_options(*args)$/;"	f	module:BusinessCentral.ApiMethods
+find_collection	lib/business_central/api_methods.rb	/^    def find_collection$/;"	f	module:BusinessCentral.ApiMethods
+fixture	test/test_helper.rb	/^def fixture(file)$/;"	f
+fixture_path	test/test_helper.rb	/^def fixture_path$/;"	f
+get	lib/business_central/api_methods.rb	/^    def get(*args)$/;"	f	module:BusinessCentral.ApiMethods
+get	lib/business_central/client.rb	/^    def get(url)$/;"	f	class:BusinessCentral.Client
+get	lib/business_central/customer_payment.rb	/^    def get(customer_payments_journal_id, customer_payment_id = nil)$/;"	f	class:BusinessCentral.CustomerPayment
+get	lib/business_central/dimension_line.rb	/^    def get(dimension_id, dimension_line_id=nil)$/;"	f	class:BusinessCentral.DimensionLine
+get	lib/business_central/journal_line.rb	/^    def get(journal_id, journal_line_id=nil)$/;"	f	class:BusinessCentral.JournalLine
+get	lib/business_central/purchase_invoice_line.rb	/^    def get(purchase_invoice_id, purchase_invoice_line_id = nil)$/;"	f	class:BusinessCentral.PurchaseInvoiceLine
+get	lib/business_central/sales_credit_memo_line.rb	/^    def get(sales_credit_memo_id, sales_credit_memo_line_id = nil)$/;"	f	class:BusinessCentral.SalesCreditMemoLine
+get	lib/business_central/sales_invoice_line.rb	/^    def get(sales_invoice_id, sales_invoice_line_id = nil)$/;"	f	class:BusinessCentral.SalesInvoiceLine
+get	lib/business_central/sales_order_line.rb	/^    def get(sales_order_id, sales_order_line_id = nil)$/;"	f	class:BusinessCentral.SalesOrderLine
+get	lib/business_central/sales_quote_line.rb	/^    def get(sales_quote_id, sales_quote_line_id = nil)$/;"	f	class:BusinessCentral.SalesQuoteLine
+get	lib/business_central/subscription.rb	/^    def get$/;"	f	class:BusinessCentral.Subscription
+get_child	lib/business_central/api_methods.rb	/^    def get_child(parent_id, child_id = nil)$/;"	f	module:BusinessCentral.ApiMethods
+get_uri	lib/business_central/client.rb	/^    def get_uri(url)$/;"	f	class:BusinessCentral.Client
+handle_error	lib/business_central/base.rb	/^    def handle_error(response)$/;"	f	class:BusinessCentral.Base
+initialize	lib/business_central/base.rb	/^    def initialize(client)$/;"	f	class:BusinessCentral.Base
+initialize	lib/business_central/client.rb	/^    def initialize(opts = {})$/;"	f	class:BusinessCentral.Client
+initialize	lib/business_central/errors.rb	/^    def initialize(message, response)$/;"	f	class:BusinessCentral.BaseError
+initialize	lib/business_central/request_builder.rb	/^  def initialize(client, opts = {})$/;"	f	class:RequestBuilder
+initialize	lib/business_central/response/response_handler.rb	/^    def initialize(dataset)$/;"	f	class:Response.ResponseHandler
+initialize	lib/business_central/subscription.rb	/^    def initialize(client, resource, endpoint)$/;"	f	class:BusinessCentral.Subscription
+initialize	lib/business_central/url_builder.rb	/^    def initialize(parent_path, parent_id, options = {})$/;"	f	class:BusinessCentral.URLBuilder
+method_missing	lib/business_central/api_methods.rb	/^    def method_missing(method_name, *args, &block)$/;"	f	module:BusinessCentral.ApiMethods
+new_country_region	test/business_central/countries_region_test.rb	/^  def new_country_region$/;"	f	class:CountriesRegionTest
+new_customer	test/business_central/customer_test.rb	/^  def new_customer$/;"	f	class:CustomerTest
+new_invoice	test/business_central/sales_invoice_test.rb	/^  def new_invoice$/;"	f	class:SalesInvoiceTest
+new_invoice_line	test/business_central/sales_invoice_line_test.rb	/^  def new_invoice_line$/;"	f	class:SalesInvoiceLineTest
+patch	lib/business_central/api_methods.rb	/^    def patch(id, etag, data)$/;"	f	module:BusinessCentral.ApiMethods
+patch	lib/business_central/client.rb	/^    def patch(url, etag, data)$/;"	f	class:BusinessCentral.Client
+perform_request	lib/business_central/client.rb	/^    def perform_request(request)$/;"	f	class:BusinessCentral.Client
+perform_request	lib/business_central/subscription.rb	/^    def perform_request(request)$/;"	f	class:BusinessCentral.Subscription
+post	lib/business_central/api_methods.rb	/^    def post(data)$/;"	f	module:BusinessCentral.ApiMethods
+post	lib/business_central/client.rb	/^    def post(url, data)$/;"	f	class:BusinessCentral.Client
+post_data	lib/business_central/subscription.rb	/^    def post_data$/;"	f	class:BusinessCentral.Subscription
+process	lib/business_central/base.rb	/^    def process(response)$/;"	f	class:BusinessCentral.Base
+process	lib/business_central/response/response_handler.rb	/^    def process$/;"	f	class:Response.ResponseHandler
+process_array	lib/business_central/response/response_handler.rb	/^    def process_array$/;"	f	class:Response.ResponseHandler
+process_data	lib/business_central/response/response_handler.rb	/^    def process_data(data)$/;"	f	class:Response.ResponseHandler
+query	lib/business_central/api_methods.rb	/^    def query(*args)$/;"	f	module:BusinessCentral.ApiMethods
+query_child	lib/business_central/api_methods.rb	/^    def query_child(parent_id, query)$/;"	f	module:BusinessCentral.ApiMethods
+request_object	lib/business_central/request_builder.rb	/^  def request_object$/;"	f	class:RequestBuilder
+request_url	lib/business_central/subscription.rb	/^    def request_url$/;"	f	class:BusinessCentral.Subscription
+sample_address	test/business_central/response/response_handler_test.rb	/^  def sample_address$/;"	f	class:ResponseHandlerTest
+sample_company	test/business_central/response/response_handler_test.rb	/^  def sample_company$/;"	f	class:ResponseHandlerTest
+sample_financial_data	test/business_central/response/response_handler_test.rb	/^  def sample_financial_data$/;"	f	class:ResponseHandlerTest
+sanitize	lib/business_central/response/response_handler.rb	/^    def sanitize(data)$/;"	f	class:Response.ResponseHandler
+setup	test/business_central/base_test.rb	/^  def setup$/;"	f	class:BaseTest
+stub_delete	test/test_helper.rb	/^def stub_delete(path)$/;"	f
+stub_get	test/test_helper.rb	/^def stub_get(path)$/;"	f
+stub_headers	test/test_helper.rb	/^def stub_headers$/;"	f
+stub_patch	test/test_helper.rb	/^def stub_patch(path)$/;"	f
+stub_post	test/test_helper.rb	/^def stub_post(path)$/;"	f
+supported_method?	lib/business_central/api_methods.rb	/^    def supported_method?(method_name)$/;"	f	module:BusinessCentral.ApiMethods
+test_base_url	test/client_test.rb	/^  def test_base_url$/;"	f	class:ClientTest
+test_base_url_with_company_id	test/client_test.rb	/^  def test_base_url_with_company_id$/;"	f	class:ClientTest
+test_build	test/business_central/request_builder_test.rb	/^  def test_build$/;"	f	class:RequestBuilderTest
+test_build_adds_data	test/business_central/request_builder_test.rb	/^  def test_build_adds_data$/;"	f	class:RequestBuilderTest
+test_build_adds_etag	test/business_central/request_builder_test.rb	/^  def test_build_adds_etag$/;"	f	class:RequestBuilderTest
+test_build_path_with_parent	test/business_central/url_builder_test.rb	/^  def test_build_path_with_parent$/;"	f	class:URLBuilderTest
+test_build_with_child	test/business_central/url_builder_test.rb	/^  def test_build_with_child$/;"	f	class:URLBuilderTest
+test_companies_success	test/business_central/company_test.rb	/^  def test_companies_success$/;"	f	class:CompanyTest
+test_company_success	test/business_central/company_test.rb	/^  def test_company_success$/;"	f	class:CompanyTest
+test_create_countries_region	test/business_central/countries_region_test.rb	/^  def test_create_countries_region$/;"	f	class:CountriesRegionTest
+test_customer_create	test/business_central/customer_test.rb	/^  def test_customer_create$/;"	f	class:CustomerTest
+test_customer_filter	test/business_central/customer_test.rb	/^  def test_customer_filter$/;"	f	class:CustomerTest
+test_customer_success	test/business_central/customer_test.rb	/^  def test_customer_success$/;"	f	class:CustomerTest
+test_customer_update	test/business_central/customer_test.rb	/^  def test_customer_update$/;"	f	class:CustomerTest
+test_customers_success	test/business_central/customer_test.rb	/^  def test_customers_success$/;"	f	class:CustomerTest
+test_delete_countries_region	test/business_central/countries_region_test.rb	/^  def test_delete_countries_region$/;"	f	class:CountriesRegionTest
+test_get_account	test/business_central/account_test.rb	/^  def test_get_account$/;"	f	class:AccountTest
+test_get_accounts	test/business_central/account_test.rb	/^  def test_get_accounts$/;"	f	class:AccountTest
+test_get_collection	test/business_central/purchase_invoice_line_test.rb	/^  def test_get_collection$/;"	f	class:PurchaseInvoiceLineTest
+test_get_collection	test/business_central/sales_order_test.rb	/^  def test_get_collection$/;"	f	class:SalesOrderTest
+test_get_countries_regions	test/business_central/countries_region_test.rb	/^  def test_get_countries_regions$/;"	f	class:CountriesRegionTest
+test_get_country_region	test/business_central/countries_region_test.rb	/^  def test_get_country_region$/;"	f	class:CountriesRegionTest
+test_get_invoice	test/business_central/purchase_invoice_line_test.rb	/^  def test_get_invoice$/;"	f	class:PurchaseInvoiceLineTest
+test_get_with_id	test/business_central/sales_order_test.rb	/^  def test_get_with_id$/;"	f	class:SalesOrderTest
+test_initialize	test/business_central/account_test.rb	/^  def test_initialize$/;"	f	class:AccountTest
+test_initialize	test/business_central/aged_accounts_payable_test.rb	/^  def test_initialize$/;"	f	class:AgedAccountsPayableTest
+test_initialize	test/business_central/aged_accounts_receivable_test.rb	/^  def test_initialize$/;"	f	class:AgedAccountsReceivableTest
+test_initialize	test/business_central/company_information_test.rb	/^  def test_initialize$/;"	f	class:CompanyInformationTest
+test_initialize	test/business_central/company_test.rb	/^  def test_initialize$/;"	f	class:CompanyTest
+test_initialize	test/business_central/countries_region_test.rb	/^  def test_initialize$/;"	f	class:CountriesRegionTest
+test_initialize	test/business_central/currency_test.rb	/^  def test_initialize$/;"	f	class:CurrencyTest
+test_initialize	test/business_central/customer_financial_details_test.rb	/^  def test_initialize$/;"	f	class:CustomerFinancialDetailsTest
+test_initialize	test/business_central/customer_payment_test.rb	/^  def test_initialize$/;"	f	class:CustomerPaymentTest
+test_initialize	test/business_central/customer_payments_journal_test.rb	/^  def test_initialize$/;"	f	class:CustomerPaymentsJournalTest
+test_initialize	test/business_central/customer_sales_test.rb	/^  def test_initialize$/;"	f	class:CustomerSalesTest
+test_initialize	test/business_central/customer_test.rb	/^  def test_initialize$/;"	f	class:CustomerTest
+test_initialize	test/business_central/dimension_line_test.rb	/^  def test_initialize$/;"	f	class:DimensionLineTest
+test_initialize	test/business_central/dimension_test.rb	/^  def test_initialize$/;"	f	class:DimensionTest
+test_initialize	test/business_central/employee_test.rb	/^  def test_initialize$/;"	f	class:EmployeeTest
+test_initialize	test/business_central/general_ledger_entry_test.rb	/^  def test_initialize$/;"	f	class:GeneralLedgerEntryTest
+test_initialize	test/business_central/income_statement_test.rb	/^  def test_initialize$/;"	f	class:IncomeStatementTest
+test_initialize	test/business_central/irs_1099_code_test.rb	/^  def test_initialize$/;"	f	class:Irs1099CodeTest
+test_initialize	test/business_central/item_category_test.rb	/^  def test_initialize$/;"	f	class:ItemCategoryTest
+test_initialize	test/business_central/item_test.rb	/^  def test_initialize$/;"	f	class:ItemTest
+test_initialize	test/business_central/journal_line_test.rb	/^  def test_initialize$/;"	f	class:JournalLineTest
+test_initialize	test/business_central/journal_test.rb	/^  def test_initialize$/;"	f	class:JournalTest
+test_initialize	test/business_central/payment_method_test.rb	/^  def test_initialize$/;"	f	class:PaymentMethodTest
+test_initialize	test/business_central/payment_term_test.rb	/^  def test_initialize$/;"	f	class:PaymentTermTest
+test_initialize	test/business_central/picture_test.rb	/^  def test_initialize$/;"	f	class:PictureTest
+test_initialize	test/business_central/purchase_invoice_line_test.rb	/^  def test_initialize$/;"	f	class:PurchaseInvoiceLineTest
+test_initialize	test/business_central/purchase_invoice_test.rb	/^  def test_initialize$/;"	f	class:PurchaseInvoiceTest
+test_initialize	test/business_central/request_builder_test.rb	/^  def test_initialize$/;"	f	class:RequestBuilderTest
+test_initialize	test/business_central/sales_credit_memo_test.rb	/^  def test_initialize$/;"	f	class:SalesCreditMemoTest
+test_initialize	test/business_central/sales_invoice_line_test.rb	/^  def test_initialize$/;"	f	class:SalesInvoiceLineTest
+test_initialize	test/business_central/sales_order_line_test.rb	/^  def test_initialize$/;"	f	class:SalesOrderLineTest
+test_initialize	test/business_central/sales_quote_line_test.rb	/^  def test_initialize$/;"	f	class:SalesQuoteLineTest
+test_initialize	test/business_central/sales_quote_test.rb	/^  def test_initialize$/;"	f	class:SalesQuoteTest
+test_initialize	test/business_central/shipment_method_test.rb	/^  def test_initialize$/;"	f	class:ShipmentMethodTest
+test_initialize	test/business_central/tax_area_test.rb	/^  def test_initialize$/;"	f	class:TaxAreaTest
+test_initialize	test/business_central/tax_group_test.rb	/^  def test_initialize$/;"	f	class:TaxGroupTest
+test_initialize	test/business_central/trial_balance_test.rb	/^  def test_initialize$/;"	f	class:TrialBalanceTest
+test_initialize	test/business_central/unit_of_measure_test.rb	/^  def test_initialize$/;"	f	class:UnitOfMeasureTest
+test_initialize	test/business_central/url_builder_test.rb	/^  def test_initialize$/;"	f	class:URLBuilderTest
+test_initialize	test/business_central/vendor_purchase_test.rb	/^  def test_initialize$/;"	f	class:VendorPurchaseTest
+test_initialize	test/business_central/vendor_test.rb	/^  def test_initialize$/;"	f	class:VendorTest
+test_initialize	test/client_test.rb	/^  def test_initialize$/;"	f	class:ClientTest
+test_method_missing_only_supports_methods_in_array	test/business_central/sales_order_test.rb	/^  def test_method_missing_only_supports_methods_in_array$/;"	f	class:SalesOrderTest
+test_patch_countries_region	test/business_central/countries_region_test.rb	/^  def test_patch_countries_region$/;"	f	class:CountriesRegionTest
+test_request_object	test/business_central/request_builder_test.rb	/^  def test_request_object$/;"	f	class:RequestBuilderTest
+test_uri	test/business_central/request_builder_test.rb	/^  def test_uri$/;"	f	class:RequestBuilderTest
+update	lib/business_central/api_methods.rb	/^    def update(*args)$/;"	f	module:BusinessCentral.ApiMethods
+update	lib/business_central/purchase_invoice_line.rb	/^    def update(purchase_invoice_id, purchase_invoice_line_id, etag, data)$/;"	f	class:BusinessCentral.PurchaseInvoiceLine
+uri	lib/business_central/request_builder.rb	/^  def uri$/;"	f	class:RequestBuilder
