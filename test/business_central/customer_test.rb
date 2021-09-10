@@ -27,7 +27,8 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
       )
 
     customer = BusinessCentral::Customer.new(bc_client).get("1234")
-    assert_equal "School of Fine Art", customer.displayName
+    assert_equal "Alpine Ski House", customer.displayName
+    assert_equal "_x0020_", customer.blocked
   end
 
   test "should return the extra details for a customer" do
@@ -56,7 +57,7 @@ class BusinessCentral::CustomerTest < Test::Unit::TestCase
   end
 
   def test_customer_update
-    data = {displayName: "Bill Example"}
+    data = {displayName: "Bill Example", blocked: 1}
     etag = "W/\"JzQ0O1JpdzI0TmU4NEpRS0R6cHAzTkVBdHpxYXorc0VLbnJ4OVQyTFJjclREeG89MTswMDsn\""
 
     stub_patch("/customers(1234)")

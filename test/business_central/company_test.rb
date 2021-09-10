@@ -27,7 +27,7 @@ class BusinessCentral::CompanyTest < Test::Unit::TestCase
       )
 
     companies = BusinessCentral::Company.new(bc_client).get
-    assert_equal 1, companies.length
+    assert_equal 2, companies.length
     assert_equal "CRONUS AU", companies.first.name
   end
 end
