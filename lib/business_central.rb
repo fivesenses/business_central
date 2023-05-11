@@ -67,7 +67,7 @@ module BusinessCentral
   autoload :UnitOfMeasure, "business_central/unit_of_measure"
   autoload :Vendor, "business_central/vendor"
   autoload :VendorPurchase, "business_central/vendor_purchase"
-  autoload :VendorPurchase, "business_central/fivenet_customer"
+  autoload :FivenetCustomer, "business_central/fivenet_customer"
 
 
   module Response
