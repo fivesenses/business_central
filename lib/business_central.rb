@@ -56,6 +56,7 @@ require 'business_central/trial_balance'
 require 'business_central/unit_of_measure'
 require 'business_central/vendor'
 require 'business_central/vendor_purchase'
+require 'business_central/fivenet_customer'
 
 
 module BusinessCentral
